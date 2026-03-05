@@ -217,6 +217,93 @@
       padding: var(--space-sm);
     }
 
+    /* Language Switcher */
+    .lang-switcher {
+      position: relative;
+    }
+
+    .lang-current {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-full);
+      padding: 6px 12px;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: var(--font-primary);
+    }
+
+    .lang-current:hover {
+      border-color: var(--color-accent);
+      color: var(--color-text-primary);
+    }
+
+    .lang-current .lang-chevron {
+      transition: transform 0.2s;
+      width: 14px;
+      height: 14px;
+    }
+
+    .lang-switcher.open .lang-current .lang-chevron {
+      transform: rotate(180deg);
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      min-width: 160px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.2s ease;
+      z-index: 1001;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+
+    .lang-switcher.open .lang-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+
+    .lang-option:hover {
+      background: var(--color-accent-subtle);
+      color: var(--color-text-primary);
+    }
+
+    .lang-option.active {
+      color: var(--color-accent);
+      background: var(--color-accent-subtle);
+    }
+
+    .lang-flag {
+      font-size: 18px;
+      line-height: 1;
+    }
+
     /* ============================================
        CONTAINER
        ============================================ */
@@ -1781,6 +1868,18 @@
         display: flex;
       }
 
+      .lang-current span:not(.lang-flag):not(.lang-chevron) {
+        display: none;
+      }
+
+      .lang-current {
+        padding: 6px 8px;
+      }
+
+      .lang-dropdown {
+        right: -40px;
+      }
+
       .hero h1 {
         font-size: 36px;
       }
@@ -1948,6 +2047,21 @@
         <li><a href="#services">Serviços</a></li>
         <li><a href="#pricing">Preço</a></li>
       </ul>
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-current" onclick="document.getElementById('langSwitcher').classList.toggle('open')">
+          <span class="lang-flag">🇧🇷</span>
+          <span>PT</span>
+          <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <div class="lang-dropdown">
+          <a href="index.html" class="lang-option active"><span class="lang-flag">🇧🇷</span> Português</a>
+          <a href="en.html" class="lang-option"><span class="lang-flag">🇺🇸</span> English</a>
+          <a href="es.html" class="lang-option"><span class="lang-flag">🇪🇸</span> Español</a>
+          <a href="zh.html" class="lang-option"><span class="lang-flag">🇨🇳</span> 中文</a>
+          <a href="hi.html" class="lang-option"><span class="lang-flag">🇮🇳</span> हिन्दी</a>
+          <a href="ar.html" class="lang-option"><span class="lang-flag">🇸🇦</span> العربية</a>
+        </div>
+      </div>
       <a href="#pricing" class="nav-cta">
         A partir de $197 <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
       </a>
@@ -2931,6 +3045,14 @@
         }
       }
     );
+
+    // Language switcher — close on click outside
+    document.addEventListener('click', (e) => {
+      const switcher = document.getElementById('langSwitcher');
+      if (switcher && !switcher.contains(e.target)) {
+        switcher.classList.remove('open');
+      }
+    });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
