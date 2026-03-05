@@ -1850,8 +1850,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: var(--space-lg);
       color: var(--color-accent);
+    }
+
+    .service-card .service-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .service-card .service-header .service-icon {
+      margin-bottom: 0;
     }
 
     .service-card h3 {
@@ -1910,7 +1920,6 @@
       letter-spacing: 0.08em;
       padding: 4px 12px;
       border-radius: var(--radius-full);
-      margin-bottom: var(--space-lg);
     }
 
     .service-badge.badge-green {
@@ -2448,8 +2457,10 @@
 
       <div class="services-grid fade-up">
         <div class="service-card">
-          <div class="service-icon">
-            <i data-lucide="video" style="width:24px;height:24px"></i>
+          <div class="service-header">
+            <div class="service-icon">
+              <i data-lucide="video" style="width:24px;height:24px"></i>
+            </div>
           </div>
           <h3>Consulting</h3>
           <div class="service-price"><span class="currency">$</span>497</div>
@@ -2470,9 +2481,11 @@
         </div>
 
         <div class="service-card service-featured">
-          <div class="service-badge badge-green">Best value</div>
-          <div class="service-icon">
-            <i data-lucide="graduation-cap" style="width:24px;height:24px"></i>
+          <div class="service-header">
+            <div class="service-icon">
+              <i data-lucide="graduation-cap" style="width:24px;height:24px"></i>
+            </div>
+            <div class="service-badge badge-green">Best value</div>
           </div>
           <h3>Tutoring</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: var(--color-accent); color: var(--color-accent);">$</span>997</div>
@@ -2496,9 +2509,11 @@
         </div>
 
         <div class="service-card service-premium">
-          <div class="service-badge badge-gold">Premium</div>
-          <div class="service-icon" style="background: rgba(245, 197, 66, 0.1); color: var(--color-gold);">
-            <i data-lucide="rocket" style="width:24px;height:24px"></i>
+          <div class="service-header">
+            <div class="service-icon" style="background: rgba(245, 197, 66, 0.1); color: var(--color-gold);">
+              <i data-lucide="rocket" style="width:24px;height:24px"></i>
+            </div>
+            <div class="service-badge badge-gold">Premium</div>
           </div>
           <h3>Implementation</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: var(--color-gold); color: var(--color-gold);">$</span>2,497<span style="font-size: 18px; -webkit-text-fill-color: var(--color-orange); color: var(--color-orange);">+</span></div>
