@@ -1,0 +1,2802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天才工厂 — 36个AI心智克隆 | $197</title>
+  <meta name="description" content="将原始知识转化为36个不朽智能体，它们会为你思考、辩论和创收。5个小队。36个智能体。1条流水线。$197。">
+  <meta property="og:title" content="天才工厂 FÁBRICA DE GÊNIOS — 36个AI心智克隆">
+  <meta property="og:description" content="输入原始知识。输出36个不朽智能体，它们会为你思考、辩论和创收。">
+  <meta property="og:image" content="assets/hero.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts: Inter + Source Serif 4 (adpanel.io design system) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP for scroll animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* ============================================
+       DESIGN SYSTEM — Inspired by adpanel.io
+       Clean minimalism + dark premium twist
+       ============================================ */
+
+    :root {
+      /* Colors */
+      --color-bg: #0a0a0a;
+      --color-bg-elevated: #111111;
+      --color-bg-card: #161616;
+      --color-bg-card-hover: #1c1c1c;
+      --color-surface: #1a1a1a;
+      --color-border: #222222;
+      --color-border-light: #333333;
+
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #989898;
+      --color-text-muted: #666666;
+
+      --color-accent: #1dcc5d;
+      --color-accent-hover: #17b04f;
+      --color-accent-glow: rgba(29, 204, 93, 0.15);
+      --color-accent-subtle: rgba(29, 204, 93, 0.08);
+
+      --color-blue: #0099ff;
+      --color-orange: #ff6b2b;
+      --color-gold: #f5c542;
+      --color-red: #ff4444;
+
+      /* Typography */
+      --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Source Serif 4', Georgia, serif;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --space-5xl: 120px;
+
+      /* Layout */
+      --max-width: 1200px;
+      --nav-height: 74px;
+
+      /* Radius */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--color-accent-hover);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 0 var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .nav-logo .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .nav-cta {
+      background: var(--color-accent);
+      color: var(--color-bg) !important;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .nav-cta:hover {
+      background: var(--color-accent-hover);
+      color: var(--color-bg) !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--color-text-primary);
+      cursor: pointer;
+      padding: var(--space-sm);
+    }
+
+    /* ============================================
+       CONTAINER
+       ============================================ */
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    .section {
+      padding: var(--space-5xl) 0;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: var(--nav-height);
+      padding-left: var(--space-xl);
+      padding-right: var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, var(--color-accent-glow), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(0, 153, 255, 0.06), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--color-accent-subtle);
+      border: 1px solid rgba(29, 204, 93, 0.2);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-badge .pulse {
+      width: 6px;
+      height: 6px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+      text-wrap: balance;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      max-width: 650px;
+      margin: 0 auto var(--space-2xl);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-bg);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      color: var(--color-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--color-accent-glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text-primary);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 16px;
+      border: 1px solid var(--color-border-light);
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-text-secondary);
+      background: var(--color-bg-elevated);
+      color: var(--color-text-primary);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3xl);
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       PROBLEM SECTION
+       ============================================ */
+
+    .problem {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .problem-text h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .problem-text h2 .red {
+      color: var(--color-red);
+    }
+
+    .problem-text p {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .problem-text .callout {
+      background: rgba(255, 68, 68, 0.06);
+      border-left: 3px solid var(--color-red);
+      padding: var(--space-lg);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: var(--space-xl);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    .problem-visual {
+      position: relative;
+    }
+
+    .problem-visual img {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    /* ============================================
+       PIPELINE / HOW IT WORKS
+       ============================================ */
+
+    .pipeline-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+    }
+
+    .section-subtitle {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .pipeline-flow {
+      display: flex;
+      align-items: stretch;
+      gap: 2px;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .pipeline-flow-item {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pipeline-flow-item:first-child {
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+
+    .pipeline-flow-item:last-child {
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+
+    .pipeline-flow-item:hover {
+      background: var(--color-bg-card-hover);
+      border-color: var(--color-accent);
+      z-index: 1;
+    }
+
+    .pipeline-flow-item .step-number {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+
+    .pipeline-flow-item .step-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pipeline-flow-item .step-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .pipeline-flow-item .step-agents {
+      font-size: 11px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-top: var(--space-sm);
+    }
+
+    /* Squad Cards */
+    .squad-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .squad-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: all 0.3s;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .squad-card:hover {
+      border-color: var(--color-accent);
+      background: var(--color-bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .squad-card-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--color-accent-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .squad-card-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .squad-card-content .squad-role {
+      font-size: 14px;
+      color: var(--color-accent);
+      font-weight: 500;
+      margin-bottom: var(--space-sm);
+    }
+
+    .squad-card-content p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .squad-card-agents {
+      text-align: center;
+    }
+
+    .squad-card-agents .count {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-text-primary);
+    }
+
+    .squad-card-agents .label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       VALUE STACK
+       ============================================ */
+
+    .value-stack {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .value-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-2xl) 0;
+    }
+
+    .value-table th {
+      text-align: left;
+      padding: var(--space-md) var(--space-lg);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .value-table td {
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--color-border);
+      font-size: 15px;
+    }
+
+    .value-table tr:hover td {
+      background: var(--color-accent-subtle);
+    }
+
+    .value-table .item-name {
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .value-table .item-desc {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+    }
+
+    .value-table .item-value {
+      text-align: right;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .value-table tfoot td {
+      font-size: 18px;
+      font-weight: 800;
+      border-top: 2px solid var(--color-accent);
+      border-bottom: none;
+    }
+
+    .value-table tfoot .item-value {
+      color: var(--color-text-primary);
+    }
+
+    /* Price Reveal */
+    .price-reveal {
+      text-align: center;
+      padding: var(--space-3xl) 0;
+    }
+
+    .price-crossed {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--color-red);
+      text-decoration-thickness: 3px;
+      opacity: 0.5;
+    }
+
+    .price-actual {
+      font-size: clamp(72px, 10vw, 120px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--color-accent), #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin: var(--space-md) 0;
+    }
+
+    .price-percentage {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+    }
+
+    .price-percentage strong {
+      color: var(--color-accent);
+    }
+
+    /* ============================================
+       PRICING TIERS
+       ============================================ */
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      max-width: 1000px;
+      margin: var(--space-2xl) auto 0;
+    }
+
+    .pricing-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--color-accent);
+      background: var(--color-bg-card-hover);
+    }
+
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.12;
+    }
+
+    .pricing-card.premium {
+      border-color: var(--color-gold);
+      background: var(--color-bg-card-hover);
+    }
+
+    .pricing-card.premium::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      z-index: -1;
+      opacity: 0.12;
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-bg);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-lg);
+    }
+
+    .pricing-badge.gold {
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      color: var(--color-bg);
+    }
+
+    .pricing-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: var(--space-sm);
+    }
+
+    .pricing-card .pricing-desc {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-lg);
+      line-height: 1.5;
+    }
+
+    .pricing-card .pricing-price {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .pricing-card .pricing-price .currency {
+      font-size: 24px;
+      vertical-align: super;
+      opacity: 0.7;
+    }
+
+    .pricing-card .pricing-price .period {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: var(--space-xl);
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.4;
+    }
+
+    .pricing-features li i {
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-features li.disabled {
+      color: var(--color-text-muted);
+      opacity: 0.5;
+    }
+
+    .pricing-features li.disabled i {
+      color: var(--color-text-muted);
+    }
+
+    .pricing-card .btn-primary,
+    .pricing-card .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-disabled {
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 16px;
+      border: 1px solid var(--color-border);
+      cursor: not-allowed;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      width: 100%;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .btn-disabled .coming-soon-tag {
+      background: var(--color-border-light);
+      color: var(--color-text-secondary);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    @media (max-width: 809px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       SOCIAL PROOF / FOR WHO
+       ============================================ */
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+
+    .audience-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: all 0.3s;
+    }
+
+    .audience-card:hover {
+      border-color: var(--color-accent);
+    }
+
+    .audience-card .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-accent-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      color: var(--color-accent);
+    }
+
+    .audience-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+
+    .audience-card p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       GUARANTEE
+       ============================================ */
+
+    .guarantee {
+      text-align: center;
+    }
+
+    .guarantee-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl) var(--space-xl);
+      position: relative;
+    }
+
+    .guarantee-box::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.15;
+    }
+
+    .guarantee-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--color-accent-subtle);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+      color: var(--color-accent);
+    }
+
+    .guarantee-box h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: var(--space-md);
+    }
+
+    .guarantee-box p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       MATH SECTION
+       ============================================ */
+
+    .math-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      margin: var(--space-2xl) 0;
+    }
+
+    .math-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+    }
+
+    .math-card .math-label {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .math-card .math-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--color-red);
+      opacity: 0.6;
+    }
+
+    /* ============================================
+       FINAL CTA
+       ============================================ */
+
+    .final-cta {
+      text-align: center;
+      padding: var(--space-5xl) 0;
+      position: relative;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, var(--color-accent-glow), transparent);
+      pointer-events: none;
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .final-cta .final-price {
+      font-size: 64px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--color-accent), #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--space-xl);
+    }
+
+    .final-cta .includes {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .final-cta .includes span {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+
+    .final-cta .includes span i {
+      color: var(--color-accent);
+    }
+
+    .final-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--color-text-muted);
+      margin-top: var(--space-2xl);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+
+    .footer {
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-2xl) 0;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-md);
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* ============================================
+       NOT FOR YOU SECTION
+       ============================================ */
+
+    .not-for-you {
+      background: var(--color-bg);
+    }
+
+    .not-for-you-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      max-width: 700px;
+      margin: var(--space-2xl) auto 0;
+    }
+
+    .not-for-you-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: rgba(255, 68, 68, 0.04);
+      border: 1px solid rgba(255, 68, 68, 0.1);
+      border-radius: var(--radius-md);
+    }
+
+    .not-for-you-item i {
+      color: var(--color-red);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .not-for-you-item p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .not-for-you-item strong {
+      color: var(--color-text-primary);
+    }
+
+    /* NEURAL SYNTHESIZER */
+    .neural-section { padding: 0 var(--space-xl) var(--space-5xl); display: flex; justify-content: center; }
+    .neural-stage { position: relative; width: 100%; max-width: 900px; border-radius: var(--radius-xl); padding: var(--space-3xl) var(--space-2xl); overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 30px 60px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.1); }
+    .neural-stage .grid-bg { position: absolute; inset: 0; pointer-events: none; opacity: 0.15; background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(to right, var(--color-border) 1px, transparent 1px); background-size: 30px 30px; mask-image: radial-gradient(circle at center, black, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%); }
+    .neural-animation-layer { position: absolute; inset: 0; pointer-events: none; z-index: 10; }
+    .neural-content { display: flex; flex-direction: column; align-items: center; gap: 80px; position: relative; z-index: 20; }
+    .processor-core { position: relative; width: 120px; height: 120px; border-radius: 50%; border: 1px solid rgba(29, 204, 93, 0.5); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 50px var(--color-accent-glow) inset, 0 0 40px rgba(29, 204, 93, 0.15); background: radial-gradient(circle, var(--color-bg-card) 0%, var(--color-bg) 100%); }
+    .processor-core .core-label { position: absolute; bottom: -28px; background: var(--color-bg); border: 1px solid rgba(29, 204, 93, 0.3); padding: 3px 12px; border-radius: var(--radius-full); color: var(--color-accent); font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; white-space: nowrap; box-shadow: 0 0 10px var(--color-accent-glow); }
+    .core-pulse-ring { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; border: 2px solid var(--color-accent); width: 100%; height: 100%; opacity: 0; z-index: -1; }
+    .neural-outputs { display: flex; width: 100%; justify-content: space-around; align-items: center; }
+    .neural-output { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .neural-output .output-icon { width: 64px; height: 64px; border-radius: 50%; border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-sm); transition: all 0.3s; background: radial-gradient(circle, var(--color-bg-card) 0%, var(--color-bg) 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.8); color: var(--color-text-muted); }
+    .neural-output h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-secondary); }
+    .chaos-word { position: absolute; color: var(--color-red); font-size: 11px; font-weight: 800; font-family: var(--font-primary); text-transform: uppercase; letter-spacing: 1.5px; pointer-events: none; z-index: 30; white-space: nowrap; background: rgba(20, 0, 0, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgba(255, 68, 68, 0.5); padding: 6px 14px; border-radius: var(--radius-sm); box-shadow: 0 5px 15px rgba(255, 68, 68, 0.15); text-shadow: 0 0 8px rgba(255, 68, 68, 0.7); }
+    .data-cable-container { height: 3px; z-index: 5; border-radius: 2px; background-color: rgba(255, 255, 255, 0.03); }
+    .data-cable-base { background: linear-gradient(90deg, transparent 0%, rgba(29, 204, 93, 0.4) 50%, transparent 100%); background-size: 200% 100%; animation: flow-cable 2.5s linear infinite; border-radius: 2px; box-shadow: 0 0 10px var(--color-accent-glow); }
+    @keyframes flow-cable { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+    .charge-pulse { position: absolute; left: 0; height: 4px; width: 100px; background-color: var(--color-accent); border-radius: 4px; box-shadow: 0 0 30px var(--color-accent), 0 0 12px #ffffff; z-index: 6; top: 50%; transform: translateY(-50%); }
+    /* CLONE FACTORY */
+    .factory-section { padding: var(--space-5xl) var(--space-xl) var(--space-3xl); }
+    .factory-header { text-align: center; max-width: 700px; margin: 0 auto var(--space-xl); }
+    .factory-header h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: var(--space-md); }
+    .factory-header p { font-family: var(--font-serif); font-size: 17px; color: var(--color-text-secondary); line-height: 1.6; }
+    .factory-wrapper { position: relative; max-width: 900px; margin: 0 auto; }
+    .factory-container { background: radial-gradient(circle at center, rgba(30,5,10,1) 0%, var(--color-bg) 100%); border: 1px solid rgba(255, 68, 68, 0.15); box-shadow: inset 0 0 60px rgba(0,0,0,0.9), 0 20px 50px rgba(0,0,0,0.5); position: relative; overflow: hidden; height: 240px; width: 100%; border-radius: var(--radius-xl); }
+    .factory-grid-bg { position: absolute; inset: 0; opacity: 0.04; background-image: linear-gradient(var(--color-red) 1px, transparent 1px), linear-gradient(to right, var(--color-red) 1px, transparent 1px); background-size: 30px 30px; }
+    .scanner-beam { position: absolute; top: 0; bottom: 0; left: 50%; width: 80px; transform: translateX(-50%); background: linear-gradient(90deg, transparent 0%, rgba(255, 68, 68, 0.08) 50%, transparent 100%); border-left: 1px solid rgba(255, 68, 68, 0.25); border-right: 1px solid rgba(255, 68, 68, 0.25); backdrop-filter: blur(2px); z-index: 10; pointer-events: none; }
+    .scanner-laser { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--color-red); box-shadow: 0 0 20px var(--color-red), 0 0 8px var(--color-red); animation: scanUpDown 1.5s ease-in-out infinite alternate; }
+    @keyframes scanUpDown { 0% { top: 15%; opacity: 0.6; } 50% { opacity: 1; } 100% { top: 85%; opacity: 0.6; } }
+    .conveyor-belt { display: flex; width: max-content; animation: moveBelt 30s linear infinite; position: absolute; top: 50%; transform: translateY(-50%); }
+    @keyframes moveBelt { 0% { transform: translate(0, -50%); } 100% { transform: translate(-50%, -50%); } }
+    .clone-node { width: 100px; display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0.25; transition: all 0.3s ease; }
+    .clone-icon { color: var(--color-text-muted); transition: all 0.2s ease; }
+    .clone-node.scanning { opacity: 1; }
+    .clone-node.scanning .clone-icon { color: var(--color-red); filter: drop-shadow(0 0 15px rgba(255, 68, 68, 0.8)); animation: slightGlitch 0.15s infinite; }
+    @keyframes slightGlitch { 0% { transform: translate(0); } 25% { transform: translate(-1px, 1px); } 50% { transform: translate(1px, -1px); } 75% { transform: translate(-1px, 1px); } 100% { transform: translate(0); } }
+    .factory-edge-shadow { position: absolute; inset: 0; pointer-events: none; box-shadow: inset 80px 0 80px var(--color-bg), inset -80px 0 80px var(--color-bg); }
+    .factory-badge { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); z-index: 50; background: var(--color-bg-elevated); color: var(--color-red); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 8px 24px; border-radius: var(--radius-full); box-shadow: 0 10px 30px rgba(255, 68, 68, 0.2); border: 1px solid rgba(255, 68, 68, 0.25); white-space: nowrap; }
+
+    /* ============================================
+       SPECIALIST SECTION
+       ============================================ */
+
+    .specialist-section {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .specialist-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .specialist-photo-wrapper {
+      position: relative;
+    }
+
+    .specialist-photo {
+      width: 280px;
+      height: 280px;
+      border-radius: var(--radius-xl);
+      object-fit: cover;
+      border: 2px solid var(--color-border-light);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .specialist-photo-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    .specialist-info h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .specialist-info .specialist-role {
+      font-size: 16px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-info .specialist-bio {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-tag {
+      background: var(--color-accent-subtle);
+      border: 1px solid rgba(29, 204, 93, 0.2);
+      color: var(--color-accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.02em;
+    }
+
+    .specialist-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--color-text-muted);
+      border-left: 3px solid var(--color-accent);
+      padding-left: var(--space-lg);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       SERVICES SECTION (Como Funciona na Prática)
+       ============================================ */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-2xl);
+    }
+
+    .service-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-border-light);
+    }
+
+    .service-card.service-featured {
+      border-color: var(--color-accent);
+    }
+
+    .service-card.service-featured::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .service-card.service-premium {
+      border-color: var(--color-gold);
+    }
+
+    .service-card.service-premium::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .service-card .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-accent-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      color: var(--color-accent);
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: var(--space-xs);
+    }
+
+    .service-card .service-price {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+      color: var(--color-text-primary);
+    }
+
+    .service-card .service-price .currency {
+      font-size: 18px;
+      vertical-align: super;
+      opacity: 0.7;
+    }
+
+    .service-card .service-desc {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-lg);
+    }
+
+    .service-features-list {
+      list-style: none;
+    }
+
+    .service-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.4;
+    }
+
+    .service-features-list li i {
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .service-card .service-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-lg);
+    }
+
+    .service-badge.badge-green {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
+
+    .service-badge.badge-gold {
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      color: var(--color-bg);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+
+    @media (max-width: 809px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-mobile-toggle {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-stats {
+        gap: var(--space-xl);
+      }
+
+      .hero-stat-number {
+        font-size: 28px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline-flow {
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .pipeline-flow-item,
+      .pipeline-flow-item:first-child,
+      .pipeline-flow-item:last-child {
+        border-radius: var(--radius-md);
+      }
+
+      .squad-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .squad-card-icon {
+        margin: 0 auto;
+      }
+
+      .squad-card-agents {
+        display: flex;
+        gap: var(--space-sm);
+        justify-content: center;
+        align-items: baseline;
+      }
+
+      .math-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .final-cta .includes {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section {
+        padding: var(--space-3xl) 0;
+      }
+
+      /* Specialist responsive */
+      .specialist-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .specialist-photo-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+
+      .specialist-photo {
+        width: 200px;
+        height: 200px;
+      }
+
+      .specialist-tags {
+        justify-content: center;
+      }
+
+      .specialist-quote {
+        border-left: none;
+        padding-left: 0;
+        text-align: center;
+        border-top: 2px solid var(--color-accent);
+        padding-top: var(--space-lg);
+      }
+
+      /* Services responsive */
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .neural-section { padding: 0 var(--space-md) var(--space-3xl); }
+      .neural-stage { padding: var(--space-2xl) var(--space-md); }
+      .processor-core { width: 90px; height: 90px; }
+      .processor-core svg { width: 34px; height: 34px; }
+      .neural-content { gap: 50px; }
+      .neural-output .output-icon { width: 48px; height: 48px; }
+      .neural-output .output-icon svg { width: 22px; height: 22px; }
+      .neural-output h4 { font-size: 10px; }
+      .factory-container { height: 180px; }
+      .factory-section { padding: 0 var(--space-md) var(--space-2xl); }
+      .clone-node { width: 70px; }
+      .clone-icon svg { width: 28px; height: 28px; }
+    }
+
+    @media (min-width: 810px) and (max-width: 1199px) {
+      .container {
+        padding: 0 var(--space-xl);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-icon">⚡</div>
+        FÁBRICA DE GÊNIOS 天才工厂
+      </div>
+      <ul class="nav-links">
+        <li><a href="#pipeline">流水线</a></li>
+        <li><a href="#specialist">专家</a></li>
+        <li><a href="#services">服务</a></li>
+        <li><a href="#pricing">价格</a></li>
+      </ul>
+      <a href="#pricing" class="nav-cta">
+        低至 $197 <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
+      </a>
+      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+        <i data-lucide="menu" style="width:24px;height:24px"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content fade-up">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          5个小队 · 36个智能体 · 1条流水线
+        </div>
+        <h1>
+          输入原始知识。<br>
+          输出<span class="highlight">36个不朽天才。</span>
+        </h1>
+        <p class="hero-subtitle">
+          将视频、PDF和转录文本转化为完整的AI心智克隆，它们会为你思考、辩论、创建操作手册并创造收入。全天候24小时运作。
+        </p>
+        <div class="hero-cta-group">
+          <a href="#pricing" class="btn-primary">
+            低至 $197 <i data-lucide="zap" style="width:18px;height:18px"></i>
+          </a>
+          <a href="#pipeline" class="btn-secondary">
+            了解运作方式 <i data-lucide="arrow-down" style="width:18px;height:18px"></i>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number">36</div>
+            <div class="hero-stat-label">AI智能体</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">5</div>
+            <div class="hero-stat-label">小队</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">15</div>
+            <div class="hero-stat-label">工作流</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">$197</div>
+            <div class="hero-stat-label">一次性价格</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEURAL SYNTHESIZER -->
+  <section class="neural-section" id="synthesizer">
+    <div class="neural-stage">
+      <div class="grid-bg"></div>
+      <div class="neural-animation-layer" id="neuralAnimLayer"></div>
+      <div class="neural-content">
+        <div class="processor-core" id="processorCore">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-accent)"><path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/><path d="m15.7 10.4-.9.4"/><path d="m9.2 13.2-.9.4"/><path d="m13.6 15.7-.4-.9"/><path d="m10.8 9.2-.4-.9"/><path d="m15.7 13.5-.9-.4"/><path d="m9.2 10.9-.9-.4"/><path d="m10.4 15.7.4-.9"/><path d="m13.1 9.2.4-.9"/></svg>
+          <div class="core-label">工厂</div>
+          <div class="core-pulse-ring" id="pulseRing1"></div>
+          <div class="core-pulse-ring" id="pulseRing2"></div>
+        </div>
+        <div id="cableLayer" style="position:relative;width:100%;height:60px;"></div>
+        <div class="neural-outputs">
+          <div class="neural-output" id="outputMindClones"><div class="output-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h4>思维克隆</h4></div>
+          <div class="neural-output" id="outputPlaybooks"><div class="output-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg></div><h4>操作手册</h4></div>
+          <div class="neural-output" id="outputReceita"><div class="output-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>收入</h4></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem section" id="problem">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-text fade-up">
+          <h2>
+            停止出卖你的时间。<br>
+            <span class="red">它昨天就用完了。</span>
+          </h2>
+          <p>
+            你已经看了200小时导师的内容。读了书。转录了播客。
+          </p>
+          <p>
+            你知道那些知识最后怎么样了吗？
+          </p>
+          <div class="callout">
+            <strong>死在了Google Drive里。</strong> 文件闲置。PDF被遗忘。再也没人打开过的转录文本。数百小时的智慧变成了整齐排列的数字垃圾。
+          </div>
+        </div>
+        <div class="problem-visual fade-up">
+          <img src="assets/hero.png" alt="知识困在PDF中" style="border-radius: var(--radius-lg);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLONE FACTORY -->
+  <section class="factory-section" id="factory">
+    <div class="factory-header fade-up">
+      <h2>传统系统<br><span class="red">制造克隆品。</span></h2>
+      <p>通用课程、复制的提示词、相同的模板。每个人出来都一样。天才工厂做的恰恰相反。</p>
+    </div>
+    <div class="factory-wrapper fade-up">
+      <div class="factory-container" id="factoryContainer">
+        <div class="factory-grid-bg"></div>
+        <div class="scanner-beam"><div class="scanner-laser"></div></div>
+        <div class="conveyor-belt" id="conveyorBelt"></div>
+        <div class="factory-edge-shadow"></div>
+      </div>
+      <div class="factory-badge">⚠ 通用系统 — 通用结果</div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section" id="pipeline">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="workflow" style="width:16px;height:16px"></i>
+          运作方式
+        </div>
+        <h2 class="section-title">工厂的5个阶段</h2>
+        <p class="section-subtitle">
+          一条工业流水线，将原始知识转化为活的人工智能，随时准备为你工作。
+        </p>
+      </div>
+
+      <!-- Pipeline Flow -->
+      <div class="pipeline-flow fade-up">
+        <div class="pipeline-flow-item">
+          <div class="step-number">阶段 1</div>
+          <div class="step-name">FORGE</div>
+          <div class="step-desc">熔炉</div>
+          <div class="step-agents">7个智能体</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">阶段 2</div>
+          <div class="step-name">ALCHEMIST</div>
+          <div class="step-desc">炼金术士</div>
+          <div class="step-agents">8个智能体</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">阶段 3</div>
+          <div class="step-name">CONCLAVE</div>
+          <div class="step-desc">议会</div>
+          <div class="step-agents">7个智能体</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">阶段 4</div>
+          <div class="step-name">ARCHITECT</div>
+          <div class="step-desc">建造者</div>
+          <div class="step-agents">7个智能体</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">阶段 5</div>
+          <div class="step-name">AMBASSADOR</div>
+          <div class="step-desc">大使</div>
+          <div class="step-agents">7个智能体</div>
+        </div>
+      </div>
+
+      <!-- Squad Cards -->
+      <div class="squad-grid fade-up" id="squads">
+        <!-- FORGE -->
+        <div class="squad-card">
+          <div class="squad-card-icon">🔥</div>
+          <div class="squad-card-content">
+            <h3>FORGE — 熔炉</h3>
+            <div class="squad-role">工业化知识处理流水线</div>
+            <p>同步、规范化、分类、处理和验证所有原始材料。Vulcan指挥。Mercury同步。Smelter规范化。Lens分析。Hammer批量处理。Chain级联。Sentinel验证。</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">智能体</div>
+          </div>
+        </div>
+
+        <!-- ALCHEMIST -->
+        <div class="squad-card">
+          <div class="squad-card-icon">⚗️</div>
+          <div class="squad-card-content">
+            <h3>ALCHEMIST — 炼金术士</h3>
+            <div class="squad-role">DNA提取 + 心智克隆</div>
+            <p>从5个层面提取思维DNA — 哲学理念、心智模型、启发方法、框架、方法论 — 并构建具有完整个性、记忆、语音和可操作手册的AI智能体。</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">8</div>
+            <div class="label">智能体</div>
+          </div>
+        </div>
+
+        <!-- CONCLAVE -->
+        <div class="squad-card">
+          <div class="squad-card-icon">⚖️</div>
+          <div class="squad-card-content">
+            <h3>CONCLAVE — 议会</h3>
+            <div class="squad-role">具有结构化审议的顾问委员会</div>
+            <p>将你的心智克隆召集到审议法庭。3轮辩论。魔鬼代言人。方法论批评。认知审计。带有置信度级别的综合报告。</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">智能体</div>
+          </div>
+        </div>
+
+        <!-- ARCHITECT -->
+        <div class="squad-card">
+          <div class="squad-card-icon">🏗️</div>
+          <div class="squad-card-content">
+            <h3>ARCHITECT — 建造者</h3>
+            <div class="squad-role">完整的软件产品构建器</div>
+            <p>构建生产运行时 — CLI、流水线引擎、智能体运行时、钩子系统、测试套件和集成。从心智克隆到功能性产品。</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">智能体</div>
+          </div>
+        </div>
+
+        <!-- AMBASSADOR -->
+        <div class="squad-card">
+          <div class="squad-card-icon">🌎</div>
+          <div class="squad-card-content">
+            <h3>AMBASSADOR — 大使</h3>
+            <div class="squad-role">完整的市场推广方案</div>
+            <p>定位、定价、用户引导、落地页、Beta计划、社区和市场 — 一切都为知识产品创作者的市场精心校准。</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">智能体</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 1: 背后的专家 -->
+  <section class="specialist-section section" id="specialist">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="user-check" style="width:16px;height:16px"></i>
+          背后的专家
+        </div>
+        <h2 class="section-title">不仅仅是代码。背后有专家支持。</h2>
+      </div>
+
+      <div class="specialist-grid fade-up">
+        <div class="specialist-photo-wrapper">
+          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — 天才工厂创始人" class="specialist-photo">
+        </div>
+        <div class="specialist-info">
+          <h2>Luis Felipe</h2>
+          <div class="specialist-role">AI系统架构师 · 天才工厂创始人</div>
+          <p class="specialist-bio">
+            拥有超过15年经验的软件工程师，专精于多智能体AI架构与智能系统编排。他创建了天才工厂这一工业级框架，将原始知识转化为功能完善的AI心智克隆——现为希望加速这一过程的用户提供咨询、辅导和完整实施服务。
+          </p>
+          <div class="specialist-tags">
+            <span class="specialist-tag">Claude Code</span>
+            <span class="specialist-tag">Multi-Agent Systems</span>
+            <span class="specialist-tag">Mind-Clones</span>
+            <span class="specialist-tag">AI Orchestration</span>
+            <span class="specialist-tag">Knowledge Pipelines</span>
+            <span class="specialist-tag">信息产品</span>
+          </div>
+          <p class="specialist-quote">
+            "锁在PDF里的知识是被浪费的潜力。天才工厂不是一门课程——它是一条工业流水线，将你所知道的一切转化为替你工作的智能体。"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 2: 实际操作方式 -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="settings" style="width:16px;height:16px"></i>
+          实际操作方式
+        </div>
+        <h2 class="section-title">选择您的支持级别。</h2>
+        <p class="section-subtitle">除了小队之外，Luis Felipe还为想要走得更快更远的用户提供个人服务。</p>
+      </div>
+
+      <div class="services-grid fade-up">
+        <!-- 咨询 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i data-lucide="video" style="width:24px;height:24px"></i>
+          </div>
+          <h3>咨询</h3>
+          <div class="service-price"><span class="currency">$</span>497</div>
+          <p class="service-desc">
+            与Luis Felipe进行1小时的在线战略会议。他分析您的情况，识别机会，并为您的心智克隆制定个性化路线图。
+          </p>
+          <ul class="service-features-list">
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 包含完整小队 ($197)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 与Luis Felipe 1小时在线会议</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 您的用例分析</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 个性化路线图</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 会议录像</li>
+          </ul>
+        </div>
+
+        <!-- 辅导 (Featured) -->
+        <div class="service-card service-featured">
+          <div class="service-badge badge-green">最佳性价比</div>
+          <div class="service-icon">
+            <i data-lucide="graduation-cap" style="width:24px;height:24px"></i>
+          </div>
+          <h3>辅导</h3>
+          <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>997</div>
+          <p class="service-desc">
+            5天密集训练（每天1小时），与Luis Felipe一起。他与您共同完成所有配置，实时创建您的第一个心智克隆，并全程陪伴实施。
+          </p>
+          <ul class="service-features-list">
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 包含完整小队 ($197)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5次在线会议（每天1小时）</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 完整环境配置</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 共同创建心智克隆</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 30天直接支持</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 加入专属社群</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 所有会议录像</li>
+          </ul>
+        </div>
+
+        <!-- 实施 (Premium) -->
+        <div class="service-card service-premium">
+          <div class="service-badge badge-gold">Premium</div>
+          <div class="service-icon" style="background: rgba(245, 197, 66, 0.1); color: var(--color-gold);">
+            <i data-lucide="rocket" style="width:24px;height:24px"></i>
+          </div>
+          <h3>实施</h3>
+          <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>2,497<span style="font-size: 18px; -webkit-text-fill-color: inherit;">+</span></div>
+          <p class="service-desc">
+            完整交付。Luis Felipe为您的细分领域实施一切——小队配置完毕、心智克隆创建并校准、上市方案就绪。
+          </p>
+          <ul class="service-features-list">
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 包含小队 + 辅导全部内容</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 个性化实施</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 针对您细分领域配置小队</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 与您的系统集成</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 创建并校准心智克隆</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 60天优先支持</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 上市战略咨询</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE STACK -->
+  <section class="value-stack section" id="pricing">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="layers" style="width:16px;height:16px"></i>
+          价值堆叠
+        </div>
+        <h2 class="section-title">让我们来算一算。</h2>
+        <p class="section-subtitle">因为数字不会说谎。</p>
+      </div>
+
+      <table class="value-table fade-up">
+        <thead>
+          <tr>
+            <th>你将获得</th>
+            <th style="text-align:right">单独价值</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="item-name">🔥 FORGE — 工业流水线</div>
+              <div class="item-desc">7个智能体，3个知识处理工作流</div>
+            </td>
+            <td class="item-value">$2,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">⚗️ ALCHEMIST — DNA提取器</div>
+              <div class="item-desc">8个智能体，3个提取和心智克隆工作流</div>
+            </td>
+            <td class="item-value">$5,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">⚖️ CONCLAVE — AI顾问委员会</div>
+              <div class="item-desc">7个智能体，3个结构化审议工作流</div>
+            </td>
+            <td class="item-value">$3,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🏗️ ARCHITECT — 产品构建器</div>
+              <div class="item-desc">7个智能体，8阶段完整构建</div>
+            </td>
+            <td class="item-value">$5,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🌎 AMBASSADOR — 市场推广</div>
+              <div class="item-desc">7个智能体，3个市场推广工作流</div>
+            </td>
+            <td class="item-value">$3,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🔗 集成协议</div>
+              <div class="item-desc">ACID交接、断路器、源头验证</div>
+            </td>
+            <td class="item-value">$1,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🤖 36个专业智能体</div>
+              <div class="item-desc">完整的人设、工作流和质量门禁</div>
+            </td>
+            <td class="item-value">$3,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🔍 全面可追溯性</div>
+              <div class="item-desc">每个输出都链接到原始来源 (^[来源])</div>
+            </td>
+            <td class="item-value">$500</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">📚 完整文档</div>
+              <div class="item-desc">README、规格说明、集成协议</div>
+            </td>
+            <td class="item-value">$500</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="item-name">总价值</td>
+            <td class="item-value">$23,000</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <!-- Price Reveal -->
+      <div class="price-reveal fade-up">
+        <div class="price-crossed">$23,000</div>
+        <div class="price-actual">$197</div>
+        <div class="price-percentage">
+          这只是总价值的 <strong>0.86%</strong>。从 <strong>$497</strong> 起Luis Felipe与您一起构建。
+        </div>
+      </div>
+
+      <!-- 定价方案 -->
+      <div class="pricing-grid fade-up">
+        <!-- Tier 1: Squad -->
+        <div class="pricing-card">
+          <h3>Squad 小队</h3>
+          <p class="pricing-desc">适合已经掌握Claude Code、知道如何使用智能体的用户。DIY — 自己动手。</p>
+          <div class="pricing-price">
+            <span class="currency">$</span>197
+            <span class="period">一次性付款</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 5个完整小队（36个智能体）</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 15个自动化工作流</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> ACID集成协议</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 完整文档</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> MIT许可证</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 终身更新</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> 专家咨询</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> 个性化辅导</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> 定制实施</li>
+          </ul>
+          <a href="https://squads.sh/pt/gutomec/fabrica-de-genios/fabrica-de-genios" class="btn-secondary">
+            获取Squad — $197
+          </a>
+        </div>
+
+        <!-- Tier 2: 咨询 -->
+        <div class="pricing-card">
+          <h3>咨询</h3>
+          <p class="pricing-desc">完整Squad + 与Luis Felipe 1小时在线咨询，分析您的案例并制定路线图。</p>
+          <div class="pricing-price">
+            <span class="currency">$</span>497
+            <span class="period">一次性付款</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> <strong style="color: var(--color-text-primary);">包含Squad全部内容</strong></li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 与Luis Felipe 1小时在线咨询</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 您的用例分析</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 个性化路线图</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 会议录像</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> 5天辅导</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> 定制实施</li>
+          </ul>
+          <span class="btn-disabled">
+            咨询 — $497 <span class="coming-soon-tag">即将推出</span>
+          </span>
+        </div>
+
+        <!-- Tier 3: 辅导 (FEATURED) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">最佳价值</div>
+          <h3>辅导</h3>
+          <p class="pricing-desc">Squad + 5天密集辅导（每天1小时）与Luis Felipe一起。共同创建您的心智克隆。</p>
+          <div class="pricing-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <span class="currency" style="-webkit-text-fill-color: inherit; opacity: 1;">$</span>997
+            <span class="period" style="-webkit-text-fill-color: var(--color-text-muted);">一次性付款</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> <strong style="color: var(--color-text-primary);">包含Squad全部内容</strong></li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 5次在线会议（5天每天1小时）</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 完整环境搭建</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 共同创建您的第一个心智克隆</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 实施过程指导</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 30天直接支持</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 专属群组访问权限</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 所有会议录像</li>
+          </ul>
+          <span class="btn-disabled">
+            辅导 — $997 <span class="coming-soon-tag">即将推出</span>
+          </span>
+        </div>
+
+        <!-- Tier 4: 实施 (PREMIUM) -->
+        <div class="pricing-card premium">
+          <div class="pricing-badge gold">高端定制</div>
+          <h3>实施</h3>
+          <p class="pricing-desc">完整定制交付。为您的领域配置一切 — 从小队到市场推广。</p>
+          <div class="pricing-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <span class="currency" style="-webkit-text-fill-color: inherit; opacity: 1;">$</span>2,497<span style="font-size: 24px; -webkit-text-fill-color: inherit;">+</span>
+            <span class="period" style="-webkit-text-fill-color: var(--color-text-muted);">咨询定价</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> <strong style="color: var(--color-text-primary);">包含Squad + 辅导全部内容</strong></li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 完整定制实施</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 为您的领域配置小队</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 与现有系统集成</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 心智克隆创建和校准</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 60天优先支持</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 市场推广战略咨询</li>
+          </ul>
+          <span class="btn-disabled">
+            联系我们 <span class="coming-soon-tag">即将推出</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHO -->
+  <section class="section">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="users" style="width:16px;height:16px"></i>
+          适合人群
+        </div>
+        <h2 class="section-title">谁应该购买</h2>
+      </div>
+
+      <div class="audience-grid fade-up">
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="mic" style="width:22px;height:22px"></i></div>
+          <h3>知识产品创作者</h3>
+          <p>将你的知识（或你所学习的导师的知识）转化为7x24小时销售和服务的AI智能体。</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="building-2" style="width:22px;height:22px"></i></div>
+          <h3>代理机构</h3>
+          <p>克隆你最优秀顾问的专业知识，在不增加人员的情况下扩展服务规模。</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="briefcase" style="width:22px;height:22px"></i></div>
+          <h3>企业</h3>
+          <p>不要在核心员工离职时丢失知识产权。将知识捕获在永久的心智克隆中。</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="search" style="width:22px;height:22px"></i></div>
+          <h3>研究人员</h3>
+          <p>将数百个来源综合成可操作的智能。与你崇拜的思想家的"AI版本"进行辩论。</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="video" style="width:22px;height:22px"></i></div>
+          <h3>内容创作者</h3>
+          <p>用你最欣赏的智慧头脑创建一个AI顾问委员会。全天候零成本辩论想法。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT FOR YOU -->
+  <section class="not-for-you section">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label" style="color: var(--color-red);">
+          <i data-lucide="x-circle" style="width:16px;height:16px"></i>
+          不适合的人群
+        </div>
+        <h2 class="section-title">不适合所有人。</h2>
+        <p class="section-subtitle">没关系。诚实为先。</p>
+      </div>
+
+      <div class="not-for-you-list fade-up">
+        <div class="not-for-you-item">
+          <i data-lucide="x" style="width:20px;height:20px"></i>
+          <p><strong>想要一个通用聊天机器人的人。</strong> 那是ChatGPT。去用吧。天才工厂是一条工业流水线，不是玩具。</p>
+        </div>
+        <div class="not-for-you-item">
+          <i data-lucide="x" style="width:20px;height:20px"></i>
+          <p><strong>没有原始知识可以处理的人。</strong> 没有输入，就没有输出。你需要原材料 — 视频、PDF、转录文本。</p>
+        </div>
+        <div class="not-for-you-item">
+          <i data-lucide="x" style="width:20px;height:20px"></i>
+          <p><strong>认为AI会替代工作的人。</strong> 天才工厂是倍增器 — 不是替代品。你仍然需要思考。只不过现在有36个额外的大脑帮你。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee section" id="guarantee">
+    <div class="container fade-up">
+      <div class="section-label" style="justify-content: center;">
+        <i data-lucide="shield-check" style="width:16px;height:16px"></i>
+        保证
+      </div>
+      <br>
+      <div class="guarantee-box" style="max-width: 1000px;">
+        <div class="guarantee-icon">
+          <i data-lucide="shield-check" style="width:32px;height:32px"></i>
+        </div>
+        <h3>每个方案有不同的保证。</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); text-align: left; margin-top: var(--space-lg);">
+          <div>
+            <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Squad — $197</p>
+            <p>
+              代码bug修复 — 无额外费用。如果运行流水线时代码出错，我们开issue并修复。<strong style="color: var(--color-text-primary);">完整技术保障。</strong>
+            </p>
+          </div>
+          <div>
+            <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">咨询 — $497</p>
+            <p>
+              如果与Luis Felipe的1小时会议未能为您的案例提供实用价值，<strong style="color: var(--color-text-primary);">我们退还$300咨询费。</strong>您保留squad。
+            </p>
+          </div>
+          <div>
+            <p style="font-weight: 700; color: var(--color-accent); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">辅导 — $997</p>
+            <p>
+              与Luis Felipe 5天结束后，您将拥有至少1个运行中的心智克隆 — 否则<strong style="color: var(--color-text-primary);">全额退款。</strong>无附加条件。
+            </p>
+          </div>
+          <div>
+            <p style="font-weight: 700; color: var(--color-gold); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">实施 — $2,497+</p>
+            <p>
+              合同保障结果。我们交付一切正常运行或<strong style="color: var(--color-text-primary);">按比例退款。</strong>开始前确定范围和保障。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATH -->
+  <section class="section">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="calculator" style="width:16px;height:16px"></i>
+          最终算术
+        </div>
+        <h2 class="section-title">让我们直说。</h2>
+        <p class="section-subtitle">因为直接是唯一的方式。</p>
+      </div>
+
+      <div class="math-grid fade-up">
+        <div class="math-card">
+          <div class="math-label">顾问委员会</div>
+          <div class="math-value">$50,000–$500,000/年</div>
+        </div>
+        <div class="math-card">
+          <div class="math-label">市场推广顾问</div>
+          <div class="math-value">$10,000–$50,000/项目</div>
+        </div>
+        <div class="math-card">
+          <div class="math-label">AI工程团队</div>
+          <div class="math-value">$200,000+/年</div>
+        </div>
+        <div class="math-card">
+          <div class="math-label">定制知识流水线</div>
+          <div class="math-value">$50,000–$100,000</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-xl);" class="fade-up">
+        <p style="font-family: var(--font-serif); font-size: 20px; color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
+          天才工厂交付<strong style="color: var(--color-text-primary);">以上所有</strong>，低至：
+        </p>
+        <div class="price-actual" style="font-size: 80px;">$197</div>
+        <p style="font-size: 16px; color: var(--color-text-muted); margin-top: var(--space-sm);">
+          单独Squad — 或从 <strong style="color: var(--color-accent);">$497</strong> 起由Luis Felipe陪您一起完成
+        </p>
+        <p style="font-size: 18px; color: var(--color-text-secondary); margin-top: var(--space-lg);">
+          问题不是"我买得起吗？"。问题是<strong style="color: var(--color-text-primary);">"我承受得起不买的代价吗？"</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="buy">
+    <div class="container">
+      <div class="final-cta-content fade-up">
+        <h2>
+          一个决定。<br>
+          零后悔。
+        </h2>
+        <div style="display: flex; gap: var(--space-xl); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-2xl);">
+          <a href="https://squads.sh/pt/gutomec/fabrica-de-genios/fabrica-de-genios" class="btn-secondary" style="font-size: 18px; padding: 18px 36px;">
+            Squad — $197
+          </a>
+          <span class="btn-disabled" style="font-size: 16px; padding: 16px 28px; width: auto;">
+            咨询 — $497 <span class="coming-soon-tag">即将推出</span>
+          </span>
+          <span class="btn-disabled" style="font-size: 16px; padding: 16px 28px; width: auto;">
+            辅导 — $997 <span class="coming-soon-tag">即将推出</span>
+          </span>
+          <span class="btn-disabled" style="font-size: 16px; padding: 16px 28px; width: auto;">
+            实施 — $2,497+ <span class="coming-soon-tag">即将推出</span>
+          </span>
+        </div>
+        <div class="includes">
+          <span><i data-lucide="check" style="width:16px;height:16px"></i> 所有方案均包含Squad</span>
+          <span><i data-lucide="check" style="width:16px;height:16px"></i> 36个AI智能体</span>
+          <span><i data-lucide="check" style="width:16px;height:16px"></i> MIT许可证</span>
+        </div>
+        <p class="final-quote">
+          "Make offers so good people feel stupid saying no."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Language Selector -->
+      <div style="margin-bottom: var(--space-lg); display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap;">
+        <a href="index.html">Português</a>
+        <a href="en.html">English</a>
+        <a href="es.html">Español</a>
+        <a href="zh.html" style="font-weight: 700; color: var(--color-accent);">中文</a>
+        <a href="hi.html">हिन्दी</a>
+        <a href="ar.html">العربية</a>
+      </div>
+      <p>FÁBRICA DE GÊNIOS 天才工厂 v1.0.0 — 输入原始知识。输出不朽天才。</p>
+      <p style="margin-top: 4px;">36个智能体 · 5个小队 · 1条流水线 · 低至 $197</p>
+      <ul class="footer-links">
+        <li><a href="#pricing">购买</a></li>
+        <li><a href="https://github.com/gutomec/fabrica-de-genios">GitHub</a></li>
+        <li><a href="#">文档</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // GSAP ScrollTrigger animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade up animations for all .fade-up elements
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+    });
+
+    // Animate hero stats numbers
+    document.querySelectorAll('.hero-stat-number').forEach(el => {
+      const target = el.textContent.replace('$', '');
+      const isPrice = el.textContent.includes('$');
+      const num = parseInt(target);
+
+      if (!isNaN(num)) {
+        gsap.from(el, {
+          textContent: 0,
+          duration: 2,
+          ease: 'power2.out',
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            once: true
+          },
+          onUpdate: function() {
+            el.textContent = (isPrice ? '$' : '') + Math.round(parseFloat(el.textContent.replace('$', '')));
+          },
+          onComplete: function() {
+            el.textContent = (isPrice ? '$' : '') + num;
+          }
+        });
+      }
+    });
+
+    // Pipeline flow items stagger
+    gsap.fromTo('.pipeline-flow-item',
+      { opacity: 0, y: 20, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: '.pipeline-flow',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Squad cards stagger
+    gsap.fromTo('.squad-card',
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.squad-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Value table rows stagger
+    gsap.fromTo('.value-table tbody tr',
+      { opacity: 0, x: -20 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.value-table',
+          start: 'top 75%',
+          once: true
+        }
+      }
+    );
+
+    // Price reveal animation
+    gsap.fromTo('.price-actual',
+      { scale: 0.5, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'back.out(1.5)',
+        scrollTrigger: {
+          trigger: '.price-reveal',
+          start: 'top 75%',
+          once: true
+        }
+      }
+    );
+
+    // Math cards stagger
+    gsap.fromTo('.math-card',
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.math-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Specialist section photo animation
+    gsap.fromTo('.specialist-photo',
+      { opacity: 0, scale: 0.8, rotation: -5 },
+      {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 0.8,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: '.specialist-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Service cards stagger
+    gsap.fromTo('.service-card',
+      { opacity: 0, y: 30, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.services-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Nav background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 50) {
+        nav.style.borderBottomColor = 'var(--color-border-light)';
+      } else {
+        nav.style.borderBottomColor = 'var(--color-border)';
+      }
+    });
+
+    // ============================================
+    // NEURAL SYNTHESIZER — Animation
+    // ============================================
+    (function() {
+      var stage = document.querySelector('.neural-stage');
+      var animLayer = document.getElementById('neuralAnimLayer');
+      var core = document.getElementById('processorCore');
+      if (!stage || !animLayer || !core) return;
+
+      var outputIds = ['outputMindClones', 'outputPlaybooks', 'outputReceita'];
+      var cables = {};
+
+      var contextRouter = [
+        { text: '被遗忘的PDF', target: 'outputMindClones' },
+        { text: '浪费的时间', target: 'outputReceita' },
+        { text: '无用的转录', target: 'outputMindClones' },
+        { text: '被困的知识', target: 'outputPlaybooks' },
+        { text: '重复的内容', target: 'outputPlaybooks' },
+        { text: '混乱的云盘', target: 'outputPlaybooks' },
+        { text: '看过的视频', target: 'outputMindClones' },
+        { text: '搁置的书籍', target: 'outputMindClones' },
+        { text: '原始素材', target: 'outputReceita' },
+        { text: '零散的笔记', target: 'outputPlaybooks' },
+        { text: '搁置的课程', target: 'outputMindClones' },
+        { text: '听过的播客', target: 'outputReceita' }
+      ];
+
+      function getCenter(el) {
+        var rect = el.getBoundingClientRect();
+        var stageRect = stage.getBoundingClientRect();
+        return {
+          x: (rect.left - stageRect.left) + (rect.width / 2),
+          y: (rect.top - stageRect.top) + (rect.height / 2)
+        };
+      }
+
+      function buildCables() {
+        animLayer.querySelectorAll('.data-cable-container').forEach(function(el) { el.remove(); });
+        cables = {};
+        var corePos = getCenter(core);
+
+        outputIds.forEach(function(id) {
+          var targetEl = document.getElementById(id);
+          if (!targetEl) return;
+          var iconNode = targetEl.querySelector('.output-icon');
+          var iconPos = getCenter(iconNode || targetEl);
+
+          var dx = iconPos.x - corePos.x;
+          var dy = iconPos.y - corePos.y;
+          var distance = Math.sqrt(dx * dx + dy * dy);
+          var angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+          var cableWrapper = document.createElement('div');
+          cableWrapper.className = 'data-cable-container';
+          cableWrapper.style.position = 'absolute';
+          cableWrapper.style.left = corePos.x + 'px';
+          cableWrapper.style.top = corePos.y + 'px';
+          cableWrapper.style.width = distance + 'px';
+          cableWrapper.style.transformOrigin = '0 50%';
+          cableWrapper.style.transform = 'rotate(' + angle + 'deg)';
+          cableWrapper.style.pointerEvents = 'none';
+
+          var cableLine = document.createElement('div');
+          cableLine.className = 'data-cable-base';
+          cableLine.style.width = '100%';
+          cableLine.style.height = '100%';
+          cableLine.style.opacity = '0.4';
+          cableWrapper.appendChild(cableLine);
+          animLayer.appendChild(cableWrapper);
+
+          cables[id] = { container: cableWrapper, distance: distance };
+        });
+      }
+
+      function dropContextualChaos() {
+        if (document.hidden) return;
+        var context = contextRouter[Math.floor(Math.random() * contextRouter.length)];
+
+        var el = document.createElement('div');
+        el.className = 'chaos-word';
+        el.textContent = context.text;
+        el.isAbsorbed = false;
+        animLayer.appendChild(el);
+
+        var corePos = getCenter(core);
+        var coreRadius = core.offsetWidth / 2;
+        var stageWidth = stage.offsetWidth;
+        var startX = (stageWidth / 2) + (Math.random() - 0.5) * (stageWidth * 0.6);
+        var startY = -40;
+
+        gsap.set(el, { x: startX, y: startY, opacity: 0, scale: 0.9 });
+        gsap.to(el, { opacity: 1, duration: 0.4 });
+
+        var dropTween = gsap.to(el, {
+          x: corePos.x,
+          y: corePos.y,
+          duration: 2.8 + Math.random() * 0.5,
+          ease: 'power2.in',
+          rotation: (Math.random() - 0.5) * 15,
+          onUpdate: function() {
+            var currentX = gsap.getProperty(el, 'x');
+            var currentY = gsap.getProperty(el, 'y');
+            var dx = currentX - corePos.x;
+            var dy = currentY - corePos.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist <= coreRadius + 15 && !el.isAbsorbed) {
+              el.isAbsorbed = true;
+              dropTween.kill();
+              gsap.to(el, {
+                scale: 0,
+                opacity: 0,
+                duration: 0.15,
+                x: corePos.x,
+                y: corePos.y,
+                onComplete: function() {
+                  el.remove();
+                  triggerContextualCharge(context.target);
+                }
+              });
+            }
+          }
+        });
+      }
+
+      function triggerContextualCharge(targetId) {
+        var coreIcon = core.querySelector('svg');
+        if (coreIcon) {
+          gsap.fromTo(coreIcon,
+            { scale: 1.2, color: '#ff4444', filter: 'drop-shadow(0 0 30px #ff4444)' },
+            { scale: 1, color: 'var(--color-accent)', filter: 'drop-shadow(0 0 15px rgba(29,204,93,0.6))', duration: 0.5, ease: 'power2.out' }
+          );
+        }
+        gsap.fromTo(core,
+          { borderColor: 'rgba(255,68,68,0.6)', boxShadow: '0 0 40px rgba(255,68,68,0.2) inset' },
+          { borderColor: 'rgba(29,204,93,0.5)', boxShadow: '0 0 50px var(--color-accent-glow) inset, 0 0 40px rgba(29,204,93,0.15)', duration: 0.6 }
+        );
+
+        var ring = document.createElement('div');
+        ring.className = 'core-pulse-ring';
+        ring.style.opacity = '0.6';
+        core.appendChild(ring);
+        gsap.to(ring, {
+          scale: 1.4, opacity: 0, duration: 0.6, ease: 'power2.out',
+          onComplete: function() { ring.remove(); }
+        });
+
+        var route = cables[targetId];
+        var targetEl = document.getElementById(targetId);
+        if (!route) return;
+
+        var pulse = document.createElement('div');
+        pulse.className = 'charge-pulse';
+        route.container.appendChild(pulse);
+
+        gsap.fromTo(pulse,
+          { x: 0, opacity: 1 },
+          { x: route.distance, opacity: 0, duration: 0.8, ease: 'power1.inOut',
+            onComplete: function() {
+              pulse.remove();
+              lightUpNode(targetEl);
+            }
+          }
+        );
+      }
+
+      function lightUpNode(targetEl) {
+        var node = targetEl.querySelector('.output-icon');
+        var icon = node ? node.querySelector('svg') : null;
+
+        if (node) {
+          gsap.fromTo(node,
+            { borderColor: 'var(--color-accent)', boxShadow: '0 0 35px rgba(29,204,93,0.5)' },
+            { borderColor: 'var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.8)', duration: 1.2, ease: 'power2.out' }
+          );
+        }
+        if (icon) {
+          gsap.fromTo(icon,
+            { color: '#ffffff', scale: 1.3 },
+            { color: 'var(--color-text-muted)', scale: 1, duration: 0.8, ease: 'bounce.out' }
+          );
+        }
+      }
+
+      buildCables();
+      window.addEventListener('resize', function() {
+        clearTimeout(window.cableResizeTimer);
+        window.cableResizeTimer = setTimeout(buildCables, 200);
+      });
+
+      var spawnInterval = null;
+      ScrollTrigger.create({
+        trigger: '.neural-section',
+        start: 'top 80%',
+        onEnter: function() {
+          if (!spawnInterval) {
+            setTimeout(dropContextualChaos, 400);
+            spawnInterval = setInterval(dropContextualChaos, 2600);
+          }
+        },
+        onLeaveBack: function() {
+          if (spawnInterval) { clearInterval(spawnInterval); spawnInterval = null; }
+        }
+      });
+
+      gsap.fromTo('.neural-stage',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0, duration: 1, ease: 'power2.out',
+          scrollTrigger: { trigger: '.neural-section', start: 'top 85%', once: true }
+        }
+      );
+    })();
+    // CLONE FACTORY
+    (function() {
+      var belt = document.getElementById('conveyorBelt'); var container = document.getElementById('factoryContainer'); if (!belt || !container) return;
+      var userSvg = '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+      for (var i = 0; i < 24; i++) { var node = document.createElement('div'); node.className = 'clone-node'; var iconDiv = document.createElement('div'); iconDiv.className = 'clone-icon'; iconDiv.innerHTML = userSvg; node.appendChild(iconDiv); belt.appendChild(node); }
+      belt.innerHTML += belt.innerHTML;
+      function detectScanning() { var cr = container.getBoundingClientRect(); var cx = cr.left + cr.width / 2; belt.querySelectorAll('.clone-node').forEach(function(n) { var nr = n.getBoundingClientRect(); Math.abs(nr.left + nr.width / 2 - cx) < 50 ? n.classList.add('scanning') : n.classList.remove('scanning'); }); requestAnimationFrame(detectScanning); }
+      ScrollTrigger.create({ trigger: '.factory-section', start: 'top 80%', onEnter: function() { requestAnimationFrame(detectScanning); }, once: true });
+      gsap.fromTo('.factory-header', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: '.factory-section', start: 'top 85%', once: true } });
+      gsap.fromTo('.factory-container', { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out', scrollTrigger: { trigger: '.factory-container', start: 'top 85%', once: true } });
+    })();
+  </script>
+
+</body>
+</html>

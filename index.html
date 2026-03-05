@@ -1,0 +1,3249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FÁBRICA DE GÊNIOS — 36 Mind-Clones de IA | $197</title>
+  <meta name="description" content="Transforme conhecimento bruto em 36 inteligências imortais que pensam, debatem e faturam por você. 5 squads. 36 agentes. 1 pipeline. $197.">
+  <meta property="og:title" content="FÁBRICA DE GÊNIOS — 36 Mind-Clones de IA">
+  <meta property="og:description" content="Entra conhecimento bruto. Saem 36 inteligências imortais que pensam, debatem e faturam — por você.">
+  <meta property="og:image" content="assets/hero.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts: Inter + Source Serif 4 (adpanel.io design system) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Source+Serif+4:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP for scroll animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    /* ============================================
+       DESIGN SYSTEM — Inspired by adpanel.io
+       Clean minimalism + dark premium twist
+       ============================================ */
+
+    :root {
+      /* Colors */
+      --color-bg: #0a0a0a;
+      --color-bg-elevated: #111111;
+      --color-bg-card: #161616;
+      --color-bg-card-hover: #1c1c1c;
+      --color-surface: #1a1a1a;
+      --color-border: #222222;
+      --color-border-light: #333333;
+
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #989898;
+      --color-text-muted: #666666;
+
+      --color-accent: #1dcc5d;
+      --color-accent-hover: #17b04f;
+      --color-accent-glow: rgba(29, 204, 93, 0.15);
+      --color-accent-subtle: rgba(29, 204, 93, 0.08);
+
+      --color-blue: #0099ff;
+      --color-orange: #ff6b2b;
+      --color-gold: #f5c542;
+      --color-red: #ff4444;
+
+      /* Typography */
+      --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'Source Serif 4', Georgia, serif;
+
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      --space-5xl: 120px;
+
+      /* Layout */
+      --max-width: 1200px;
+      --nav-height: 74px;
+
+      /* Radius */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+    }
+
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--color-accent-hover);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ============================================
+       NAVIGATION
+       ============================================ */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: var(--max-width);
+      padding: 0 var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      color: var(--color-text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .nav-logo .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xl);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--color-text-secondary);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    .nav-cta {
+      background: var(--color-accent);
+      color: var(--color-bg) !important;
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .nav-cta:hover {
+      background: var(--color-accent-hover);
+      color: var(--color-bg) !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--color-text-primary);
+      cursor: pointer;
+      padding: var(--space-sm);
+    }
+
+    /* ============================================
+       CONTAINER
+       ============================================ */
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+    }
+
+    .section {
+      padding: var(--space-5xl) 0;
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: var(--nav-height);
+      padding-left: var(--space-xl);
+      padding-right: var(--space-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, var(--color-accent-glow), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(0, 153, 255, 0.06), transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--color-accent-subtle);
+      border: 1px solid rgba(29, 204, 93, 0.2);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xl);
+    }
+
+    .hero-badge .pulse {
+      width: 6px;
+      height: 6px;
+      background: var(--color-accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+      text-wrap: balance;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+      max-width: 650px;
+      margin: 0 auto var(--space-2xl);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: var(--color-bg);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+      color: var(--color-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--color-accent-glow);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text-primary);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 16px;
+      border: 1px solid var(--color-border-light);
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-text-secondary);
+      background: var(--color-bg-elevated);
+      color: var(--color-text-primary);
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3xl);
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--color-text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       PROBLEM SECTION
+       ============================================ */
+
+    .problem {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .problem-text h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .problem-text h2 .red {
+      color: var(--color-red);
+    }
+
+    .problem-text p {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+
+    .problem-text .callout {
+      background: rgba(255, 68, 68, 0.06);
+      border-left: 3px solid var(--color-red);
+      padding: var(--space-lg);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: var(--space-xl);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    .problem-visual {
+      position: relative;
+    }
+
+    .problem-visual img {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+
+    /* ============================================
+       PIPELINE / HOW IT WORKS
+       ============================================ */
+
+    .pipeline-header {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+    }
+
+    .section-subtitle {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .pipeline-flow {
+      display: flex;
+      align-items: stretch;
+      gap: 2px;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .pipeline-flow-item {
+      flex: 1;
+      text-align: center;
+      padding: var(--space-lg) var(--space-md);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pipeline-flow-item:first-child {
+      border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+    }
+
+    .pipeline-flow-item:last-child {
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+
+    .pipeline-flow-item:hover {
+      background: var(--color-bg-card-hover);
+      border-color: var(--color-accent);
+      z-index: 1;
+    }
+
+    .pipeline-flow-item .step-number {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      margin-bottom: var(--space-xs);
+    }
+
+    .pipeline-flow-item .step-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pipeline-flow-item .step-desc {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .pipeline-flow-item .step-agents {
+      font-size: 11px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-top: var(--space-sm);
+    }
+
+    /* Squad Cards */
+    .squad-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .squad-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: all 0.3s;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .squad-card:hover {
+      border-color: var(--color-accent);
+      background: var(--color-bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .squad-card-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--color-accent-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .squad-card-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .squad-card-content .squad-role {
+      font-size: 14px;
+      color: var(--color-accent);
+      font-weight: 500;
+      margin-bottom: var(--space-sm);
+    }
+
+    .squad-card-content p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .squad-card-agents {
+      text-align: center;
+    }
+
+    .squad-card-agents .count {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-text-primary);
+    }
+
+    .squad-card-agents .label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       VALUE STACK
+       ============================================ */
+
+    .value-stack {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .value-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-2xl) 0;
+    }
+
+    .value-table th {
+      text-align: left;
+      padding: var(--space-md) var(--space-lg);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .value-table td {
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--color-border);
+      font-size: 15px;
+    }
+
+    .value-table tr:hover td {
+      background: var(--color-accent-subtle);
+    }
+
+    .value-table .item-name {
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+
+    .value-table .item-desc {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+    }
+
+    .value-table .item-value {
+      text-align: right;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .value-table tfoot td {
+      font-size: 18px;
+      font-weight: 800;
+      border-top: 2px solid var(--color-accent);
+      border-bottom: none;
+    }
+
+    .value-table tfoot .item-value {
+      color: var(--color-text-primary);
+    }
+
+    /* Price Reveal */
+    .price-reveal {
+      text-align: center;
+      padding: var(--space-3xl) 0;
+    }
+
+    .price-crossed {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--color-red);
+      text-decoration-thickness: 3px;
+      opacity: 0.5;
+    }
+
+    .price-actual {
+      font-size: clamp(72px, 10vw, 120px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, var(--color-accent), #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin: var(--space-md) 0;
+    }
+
+    .price-percentage {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+    }
+
+    .price-percentage strong {
+      color: var(--color-accent);
+    }
+
+    /* ============================================
+       PRICING TIERS
+       ============================================ */
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      max-width: 1000px;
+      margin: var(--space-2xl) auto 0;
+    }
+
+    .pricing-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      transition: all 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--color-accent);
+      background: var(--color-bg-card-hover);
+    }
+
+    .pricing-card.featured::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.12;
+    }
+
+    .pricing-card.premium {
+      border-color: var(--color-gold);
+      background: var(--color-bg-card-hover);
+    }
+
+    .pricing-card.premium::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      z-index: -1;
+      opacity: 0.12;
+    }
+
+    .pricing-badge {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-bg);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-lg);
+    }
+
+    .pricing-badge.gold {
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      color: var(--color-bg);
+    }
+
+    .pricing-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: var(--space-sm);
+    }
+
+    .pricing-card .pricing-desc {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-lg);
+      line-height: 1.5;
+    }
+
+    .pricing-card .pricing-price {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .pricing-card .pricing-price .currency {
+      font-size: 24px;
+      vertical-align: super;
+      opacity: 0.7;
+    }
+
+    .pricing-card .pricing-price .period {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: var(--space-xl);
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.4;
+    }
+
+    .pricing-features li i {
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-features li.disabled {
+      color: var(--color-text-muted);
+      opacity: 0.5;
+    }
+
+    .pricing-features li.disabled i {
+      color: var(--color-text-muted);
+    }
+
+    .pricing-card .btn-primary,
+    .pricing-card .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-disabled {
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 16px;
+      border: 1px solid var(--color-border);
+      cursor: not-allowed;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      width: 100%;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .btn-disabled .coming-soon-tag {
+      background: var(--color-border-light);
+      color: var(--color-text-secondary);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    @media (max-width: 809px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       SOCIAL PROOF / FOR WHO
+       ============================================ */
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+
+    .audience-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: all 0.3s;
+    }
+
+    .audience-card:hover {
+      border-color: var(--color-accent);
+    }
+
+    .audience-card .card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-accent-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-md);
+      color: var(--color-accent);
+    }
+
+    .audience-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+    }
+
+    .audience-card p {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       GUARANTEE
+       ============================================ */
+
+    .guarantee {
+      text-align: center;
+    }
+
+    .guarantee-box {
+      max-width: 700px;
+      margin: 0 auto;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl) var(--space-xl);
+      position: relative;
+    }
+
+    .guarantee-box::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.15;
+    }
+
+    .guarantee-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--color-accent-subtle);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+      color: var(--color-accent);
+    }
+
+    .guarantee-box h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: var(--space-md);
+    }
+
+    .guarantee-box p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       MATH SECTION
+       ============================================ */
+
+    .math-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+      margin: var(--space-2xl) 0;
+    }
+
+    .math-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+    }
+
+    .math-card .math-label {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .math-card .math-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+      text-decoration-color: var(--color-red);
+      opacity: 0.6;
+    }
+
+    /* ============================================
+       FINAL CTA
+       ============================================ */
+
+    .final-cta {
+      text-align: center;
+      padding: var(--space-5xl) 0;
+      position: relative;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, var(--color-accent-glow), transparent);
+      pointer-events: none;
+    }
+
+    .final-cta-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .final-cta .final-price {
+      font-size: 64px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--color-accent), #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--space-xl);
+    }
+
+    .final-cta .includes {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-xl);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .final-cta .includes span {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+    }
+
+    .final-cta .includes span i {
+      color: var(--color-accent);
+    }
+
+    .final-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--color-text-muted);
+      margin-top: var(--space-2xl);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+
+    .footer {
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-2xl) 0;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-top: var(--space-md);
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text-primary);
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* ============================================
+       NOT FOR YOU SECTION
+       ============================================ */
+
+    .not-for-you {
+      background: var(--color-bg);
+    }
+
+    .not-for-you-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      max-width: 700px;
+      margin: var(--space-2xl) auto 0;
+    }
+
+    .not-for-you-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: rgba(255, 68, 68, 0.04);
+      border: 1px solid rgba(255, 68, 68, 0.1);
+      border-radius: var(--radius-md);
+    }
+
+    .not-for-you-item i {
+      color: var(--color-red);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .not-for-you-item p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .not-for-you-item strong {
+      color: var(--color-text-primary);
+    }
+
+    /* ============================================
+       NEURAL SYNTHESIZER
+       ============================================ */
+
+    .neural-section {
+      padding: 0 var(--space-xl) var(--space-5xl);
+      display: flex;
+      justify-content: center;
+    }
+
+    .neural-stage {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius-xl);
+      padding: var(--space-3xl) var(--space-2xl);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .neural-stage .grid-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.15;
+      background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(to right, var(--color-border) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: radial-gradient(circle at center, black, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+    }
+
+    .neural-animation-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .neural-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .processor-core {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1px solid rgba(29, 204, 93, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 50px var(--color-accent-glow) inset, 0 0 40px rgba(29, 204, 93, 0.15);
+      background: radial-gradient(circle, var(--color-bg-card) 0%, var(--color-bg) 100%);
+    }
+
+    .processor-core .core-label {
+      position: absolute;
+      bottom: -28px;
+      background: var(--color-bg);
+      border: 1px solid rgba(29, 204, 93, 0.3);
+      padding: 3px 12px;
+      border-radius: var(--radius-full);
+      color: var(--color-accent);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 0 10px var(--color-accent-glow);
+    }
+
+    .core-pulse-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 2px solid var(--color-accent);
+      width: 100%; height: 100%;
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .neural-outputs {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .neural-output {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .neural-output .output-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-sm);
+      transition: all 0.3s;
+      background: radial-gradient(circle, var(--color-bg-card) 0%, var(--color-bg) 100%);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      color: var(--color-text-muted);
+    }
+
+    .neural-output h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+    }
+
+    .chaos-word {
+      position: absolute;
+      color: var(--color-red);
+      font-size: 11px;
+      font-weight: 800;
+      font-family: var(--font-primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      pointer-events: none;
+      z-index: 30;
+      white-space: nowrap;
+      background: rgba(20, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 68, 68, 0.5);
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 5px 15px rgba(255, 68, 68, 0.15);
+      text-shadow: 0 0 8px rgba(255, 68, 68, 0.7);
+    }
+
+    .data-cable-container {
+      height: 3px;
+      z-index: 5;
+      border-radius: 2px;
+      background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    .data-cable-base {
+      background: linear-gradient(90deg, transparent 0%, rgba(29, 204, 93, 0.4) 50%, transparent 100%);
+      background-size: 200% 100%;
+      animation: flow-cable 2.5s linear infinite;
+      border-radius: 2px;
+      box-shadow: 0 0 10px var(--color-accent-glow);
+    }
+
+    @keyframes flow-cable {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    .charge-pulse {
+      position: absolute;
+      left: 0;
+      height: 4px;
+      width: 100px;
+      background-color: var(--color-accent);
+      border-radius: 4px;
+      box-shadow: 0 0 30px var(--color-accent), 0 0 12px #ffffff;
+      z-index: 6;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /* ============================================
+       CLONE FACTORY
+       ============================================ */
+
+    .factory-section {
+      padding: var(--space-5xl) var(--space-xl) var(--space-3xl);
+    }
+
+    .factory-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .factory-header h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+    }
+
+    .factory-header p {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .factory-wrapper {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .factory-container {
+      background: radial-gradient(circle at center, rgba(30,5,10,1) 0%, var(--color-bg) 100%);
+      border: 1px solid rgba(255, 68, 68, 0.15);
+      box-shadow: inset 0 0 60px rgba(0,0,0,0.9), 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+      width: 100%;
+      border-radius: var(--radius-xl);
+    }
+
+    .factory-grid-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: linear-gradient(var(--color-red) 1px, transparent 1px), linear-gradient(to right, var(--color-red) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .scanner-beam {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 80px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent 0%, rgba(255, 68, 68, 0.08) 50%, transparent 100%);
+      border-left: 1px solid rgba(255, 68, 68, 0.25);
+      border-right: 1px solid rgba(255, 68, 68, 0.25);
+      backdrop-filter: blur(2px);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .scanner-laser {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-red);
+      box-shadow: 0 0 20px var(--color-red), 0 0 8px var(--color-red);
+      animation: scanUpDown 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes scanUpDown {
+      0% { top: 15%; opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { top: 85%; opacity: 0.6; }
+    }
+
+    .conveyor-belt {
+      display: flex;
+      width: max-content;
+      animation: moveBelt 30s linear infinite;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @keyframes moveBelt {
+      0% { transform: translate(0, -50%); }
+      100% { transform: translate(-50%, -50%); }
+    }
+
+    .clone-node {
+      width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.25;
+      transition: all 0.3s ease;
+    }
+
+    .clone-icon {
+      color: var(--color-text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .clone-node.scanning {
+      opacity: 1;
+    }
+
+    .clone-node.scanning .clone-icon {
+      color: var(--color-red);
+      filter: drop-shadow(0 0 15px rgba(255, 68, 68, 0.8));
+      animation: slightGlitch 0.15s infinite;
+    }
+
+    @keyframes slightGlitch {
+      0% { transform: translate(0); }
+      25% { transform: translate(-1px, 1px); }
+      50% { transform: translate(1px, -1px); }
+      75% { transform: translate(-1px, 1px); }
+      100% { transform: translate(0); }
+    }
+
+    .factory-edge-shadow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 80px 0 80px var(--color-bg), inset -80px 0 80px var(--color-bg);
+    }
+
+    .factory-badge {
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      background: var(--color-bg-elevated);
+      color: var(--color-red);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 8px 24px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 10px 30px rgba(255, 68, 68, 0.2);
+      border: 1px solid rgba(255, 68, 68, 0.25);
+      white-space: nowrap;
+    }
+
+    /* ============================================
+       SPECIALIST SECTION
+       ============================================ */
+
+    .specialist-section {
+      background: var(--color-bg-elevated);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .specialist-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .specialist-photo-wrapper {
+      position: relative;
+    }
+
+    .specialist-photo {
+      width: 280px;
+      height: 280px;
+      border-radius: var(--radius-xl);
+      object-fit: cover;
+      border: 2px solid var(--color-border-light);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .specialist-photo-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.2;
+    }
+
+    .specialist-info h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .specialist-info .specialist-role {
+      font-size: 16px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-info .specialist-bio {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-tag {
+      background: var(--color-accent-subtle);
+      border: 1px solid rgba(29, 204, 93, 0.2);
+      color: var(--color-accent);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.02em;
+    }
+
+    .specialist-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--color-text-muted);
+      border-left: 3px solid var(--color-accent);
+      padding-left: var(--space-lg);
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       SERVICES SECTION (Como Funciona na Prática)
+       ============================================ */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-2xl);
+    }
+
+    .service-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-border-light);
+    }
+
+    .service-card.service-featured {
+      border-color: var(--color-accent);
+    }
+
+    .service-card.service-featured::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-accent), var(--color-blue));
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .service-card.service-premium {
+      border-color: var(--color-gold);
+    }
+
+    .service-card.service-premium::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    .service-card .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-accent-subtle);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+      color: var(--color-accent);
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: var(--space-xs);
+    }
+
+    .service-card .service-price {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-md);
+      color: var(--color-text-primary);
+    }
+
+    .service-card .service-price .currency {
+      font-size: 18px;
+      vertical-align: super;
+      opacity: 0.7;
+    }
+
+    .service-card .service-desc {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin-bottom: var(--space-lg);
+    }
+
+    .service-features-list {
+      list-style: none;
+    }
+
+    .service-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+      line-height: 1.4;
+    }
+
+    .service-features-list li i {
+      color: var(--color-accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .service-card .service-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-lg);
+    }
+
+    .service-badge.badge-green {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
+
+    .service-badge.badge-gold {
+      background: linear-gradient(135deg, var(--color-gold), var(--color-orange));
+      color: var(--color-bg);
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+
+    @media (max-width: 809px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-mobile-toggle {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero-stats {
+        gap: var(--space-xl);
+      }
+
+      .hero-stat-number {
+        font-size: 28px;
+      }
+
+      .problem-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pipeline-flow {
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
+
+      .pipeline-flow-item,
+      .pipeline-flow-item:first-child,
+      .pipeline-flow-item:last-child {
+        border-radius: var(--radius-md);
+      }
+
+      .squad-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .squad-card-icon {
+        margin: 0 auto;
+      }
+
+      .squad-card-agents {
+        display: flex;
+        gap: var(--space-sm);
+        justify-content: center;
+        align-items: baseline;
+      }
+
+      .math-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .final-cta .includes {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .section {
+        padding: var(--space-3xl) 0;
+      }
+
+      /* Specialist responsive */
+      .specialist-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .specialist-photo-wrapper {
+        display: flex;
+        justify-content: center;
+      }
+
+      .specialist-photo {
+        width: 200px;
+        height: 200px;
+      }
+
+      .specialist-tags {
+        justify-content: center;
+      }
+
+      .specialist-quote {
+        border-left: none;
+        padding-left: 0;
+        text-align: center;
+        border-top: 2px solid var(--color-accent);
+        padding-top: var(--space-lg);
+      }
+
+      /* Services responsive */
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Neural Synthesizer responsive */
+      .neural-section {
+        padding: 0 var(--space-md) var(--space-3xl);
+      }
+
+      .neural-stage {
+        padding: var(--space-2xl) var(--space-md);
+      }
+
+      .processor-core {
+        width: 90px;
+        height: 90px;
+      }
+
+      .processor-core svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .neural-content {
+        gap: 50px;
+      }
+
+      .neural-output .output-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .neural-output .output-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .neural-output h4 {
+        font-size: 10px;
+      }
+
+      /* Clone Factory responsive */
+      .factory-container {
+        height: 180px;
+      }
+
+      .factory-section {
+        padding: 0 var(--space-md) var(--space-2xl);
+      }
+
+      .clone-node {
+        width: 70px;
+      }
+
+      .clone-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    @media (min-width: 810px) and (max-width: 1199px) {
+      .container {
+        padding: 0 var(--space-xl);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-icon">⚡</div>
+        FÁBRICA DE GÊNIOS
+      </div>
+      <ul class="nav-links">
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#specialist">Especialista</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#pricing">Preço</a></li>
+      </ul>
+      <a href="#pricing" class="nav-cta">
+        A partir de $197 <i data-lucide="arrow-right" style="width:16px;height:16px"></i>
+      </a>
+      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+        <i data-lucide="menu" style="width:24px;height:24px"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content fade-up">
+        <div class="hero-badge">
+          <span class="pulse"></span>
+          5 squads · 36 agentes · 1 pipeline
+        </div>
+        <h1>
+          Entra conhecimento bruto.<br>
+          Saem <span class="highlight">36 gênios imortais.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Transforme vídeos, PDFs e transcrições em mind-clones de IA completos que pensam, debatem, criam playbooks e geram receita — por você. 24 horas por dia.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#pricing" class="btn-primary">
+            A partir de $197 <i data-lucide="zap" style="width:18px;height:18px"></i>
+          </a>
+          <a href="#pipeline" class="btn-secondary">
+            Ver como funciona <i data-lucide="arrow-down" style="width:18px;height:18px"></i>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number">36</div>
+            <div class="hero-stat-label">Agentes IA</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">5</div>
+            <div class="hero-stat-label">Squads</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">15</div>
+            <div class="hero-stat-label">Workflows</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number">$197</div>
+            <div class="hero-stat-label">Preço único</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEURAL SYNTHESIZER -->
+  <section class="neural-section" id="synthesizer">
+    <div class="neural-stage">
+      <div class="grid-bg"></div>
+      <div class="neural-animation-layer" id="neuralAnimLayer"></div>
+      <div class="neural-content">
+        <!-- Processor Core (Brain) -->
+        <div class="processor-core" id="processorCore">
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-accent)">
+            <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/>
+            <path d="m15.7 10.4-.9.4"/>
+            <path d="m9.2 13.2-.9.4"/>
+            <path d="m13.6 15.7-.4-.9"/>
+            <path d="m10.8 9.2-.4-.9"/>
+            <path d="m15.7 13.5-.9-.4"/>
+            <path d="m9.2 10.9-.9-.4"/>
+            <path d="m10.4 15.7.4-.9"/>
+            <path d="m13.1 9.2.4-.9"/>
+          </svg>
+          <div class="core-label">FÁBRICA</div>
+          <div class="core-pulse-ring" id="pulseRing1"></div>
+          <div class="core-pulse-ring" id="pulseRing2"></div>
+        </div>
+
+        <!-- Data Cables (drawn dynamically by JS) -->
+        <div id="cableLayer" style="position:relative;width:100%;height:60px;"></div>
+
+        <!-- Output Nodes -->
+        <div class="neural-outputs">
+          <div class="neural-output" id="outputMindClones">
+            <div class="output-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h4>Mind-Clones</h4>
+          </div>
+          <div class="neural-output" id="outputPlaybooks">
+            <div class="output-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+              </svg>
+            </div>
+            <h4>Playbooks</h4>
+          </div>
+          <div class="neural-output" id="outputReceita">
+            <div class="output-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h4>Receita</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem section" id="problem">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-text fade-up">
+          <h2>
+            Pare de vender seu tempo.<br>
+            <span class="red">Ele acabou ontem.</span>
+          </h2>
+          <p>
+            Você já assistiu 200 horas de conteúdo de um mentor. Já leu os livros. Já transcreveu os podcasts.
+          </p>
+          <p>
+            E sabe o que aconteceu com esse conhecimento?
+          </p>
+          <div class="callout">
+            <strong>Morreu no Google Drive.</strong> Arquivos parados. PDFs esquecidos. Transcrições que ninguém nunca mais abriu. Centenas de horas de sabedoria transformadas em lixo digital organizado.
+          </div>
+        </div>
+        <div class="problem-visual fade-up">
+          <img src="assets/hero.png" alt="Conhecimento preso em PDFs" style="border-radius: var(--radius-lg);">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLONE FACTORY -->
+  <section class="factory-section" id="factory">
+    <div class="factory-header fade-up">
+      <h2>O sistema tradicional<br><span class="red">fabrica clones.</span></h2>
+      <p>Cursos genéricos, prompts copiados, templates iguais. Todo mundo sai igual. A Fábrica de Gênios faz o oposto.</p>
+    </div>
+    <div class="factory-wrapper fade-up">
+      <div class="factory-container" id="factoryContainer">
+        <div class="factory-grid-bg"></div>
+        <div class="scanner-beam">
+          <div class="scanner-laser"></div>
+        </div>
+        <div class="conveyor-belt" id="conveyorBelt"></div>
+        <div class="factory-edge-shadow"></div>
+      </div>
+      <div class="factory-badge">⚠ Sistema genérico — resultados genéricos</div>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="section" id="pipeline">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="workflow" style="width:16px;height:16px"></i>
+          Como funciona
+        </div>
+        <h2 class="section-title">Os 5 Estágios da Fábrica</h2>
+        <p class="section-subtitle">
+          Um pipeline industrial que transforma conhecimento bruto em inteligência artificial viva, pronta para trabalhar.
+        </p>
+      </div>
+
+      <!-- Pipeline Flow -->
+      <div class="pipeline-flow fade-up">
+        <div class="pipeline-flow-item">
+          <div class="step-number">Estágio 1</div>
+          <div class="step-name">FORGE</div>
+          <div class="step-desc">A Fornalha</div>
+          <div class="step-agents">7 agentes</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">Estágio 2</div>
+          <div class="step-name">ALCHEMIST</div>
+          <div class="step-desc">O Alquimista</div>
+          <div class="step-agents">8 agentes</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">Estágio 3</div>
+          <div class="step-name">CONCLAVE</div>
+          <div class="step-desc">O Conselho</div>
+          <div class="step-agents">7 agentes</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">Estágio 4</div>
+          <div class="step-name">ARCHITECT</div>
+          <div class="step-desc">O Construtor</div>
+          <div class="step-agents">7 agentes</div>
+        </div>
+        <div class="pipeline-flow-item">
+          <div class="step-number">Estágio 5</div>
+          <div class="step-name">AMBASSADOR</div>
+          <div class="step-desc">O Embaixador</div>
+          <div class="step-agents">7 agentes</div>
+        </div>
+      </div>
+
+      <!-- Squad Cards -->
+      <div class="squad-grid fade-up" id="squads">
+        <!-- FORGE -->
+        <div class="squad-card">
+          <div class="squad-card-icon">🔥</div>
+          <div class="squad-card-content">
+            <h3>FORGE — A Fornalha</h3>
+            <div class="squad-role">Pipeline industrial de processamento</div>
+            <p>Sincroniza, normaliza, classifica, processa e valida todo material bruto. Vulcan comanda. Mercury sincroniza. Smelter normaliza. Lens analisa. Hammer processa em lote. Chain cascateia. Sentinel valida.</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">agentes</div>
+          </div>
+        </div>
+
+        <!-- ALCHEMIST -->
+        <div class="squad-card">
+          <div class="squad-card-icon">⚗️</div>
+          <div class="squad-card-content">
+            <h3>ALCHEMIST — O Alquimista</h3>
+            <div class="squad-role">Extração de DNA + Mind-Clones</div>
+            <p>Extrai DNA intelectual em 5 camadas — Filosofias, Modelos Mentais, Heurísticas, Frameworks, Metodologias — e constrói agentes IA completos com personalidade, memória, voz e playbooks acionáveis.</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">8</div>
+            <div class="label">agentes</div>
+          </div>
+        </div>
+
+        <!-- CONCLAVE -->
+        <div class="squad-card">
+          <div class="squad-card-icon">⚖️</div>
+          <div class="squad-card-content">
+            <h3>CONCLAVE — O Conselho</h3>
+            <div class="squad-role">Board de advisors com deliberação estruturada</div>
+            <p>Reúne seus mind-clones em tribunal de deliberação. 3 rounds de debate. Advogado do diabo. Crítica metodológica. Auditoria epistêmica. Síntese com níveis de confiança.</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">agentes</div>
+          </div>
+        </div>
+
+        <!-- ARCHITECT -->
+        <div class="squad-card">
+          <div class="squad-card-icon">🏗️</div>
+          <div class="squad-card-content">
+            <h3>ARCHITECT — O Construtor</h3>
+            <div class="squad-role">Builder de produto de software completo</div>
+            <p>Constrói o runtime de produção — CLI, engine de pipeline, runtime de agentes, sistema de hooks, suite de testes e integrações. De mind-clone a produto funcional.</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">agentes</div>
+          </div>
+        </div>
+
+        <!-- AMBASSADOR -->
+        <div class="squad-card">
+          <div class="squad-card-icon">🌎</div>
+          <div class="squad-card-content">
+            <h3>AMBASSADOR — O Embaixador</h3>
+            <div class="squad-role">Go-to-market completo</div>
+            <p>Posicionamento, pricing, onboarding, landing page, programa beta, comunidade e marketplace — tudo calibrado para o mercado brasileiro de infoprodutores.</p>
+          </div>
+          <div class="squad-card-agents">
+            <div class="count">7</div>
+            <div class="label">agentes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 1: QUEM ESTÁ POR TRÁS -->
+  <section class="specialist-section section" id="specialist">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="user-check" style="width:16px;height:16px"></i>
+          Quem está por trás
+        </div>
+        <h2 class="section-title">Não é só código. Tem um especialista por trás.</h2>
+      </div>
+
+      <div class="specialist-grid fade-up">
+        <div class="specialist-photo-wrapper">
+          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — Criador da Fábrica de Gênios" class="specialist-photo">
+        </div>
+        <div class="specialist-info">
+          <h2>Luis Felipe</h2>
+          <div class="specialist-role">Arquiteto de Sistemas de IA · Criador da Fábrica de Gênios</div>
+          <p class="specialist-bio">
+            Engenheiro de software com mais de 15 anos de experiência, especialista em arquiteturas de IA multi-agente e orquestração de sistemas inteligentes. Criou a Fábrica de Gênios como framework industrial para transformar conhecimento bruto em mind-clones de IA funcionais — e agora oferece serviços de consultoria, tutoria e implementação completa para quem quer acelerar o processo.
+          </p>
+          <div class="specialist-tags">
+            <span class="specialist-tag">Claude Code</span>
+            <span class="specialist-tag">Multi-Agent Systems</span>
+            <span class="specialist-tag">Mind-Clones</span>
+            <span class="specialist-tag">AI Orchestration</span>
+            <span class="specialist-tag">Knowledge Pipelines</span>
+            <span class="specialist-tag">Infoprodutos</span>
+          </div>
+          <p class="specialist-quote">
+            "Conhecimento preso em PDFs é potencial desperdiçado. A Fábrica de Gênios não é um curso — é um pipeline industrial que transforma tudo que você sabe em inteligências que trabalham por você."
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 2: COMO FUNCIONA NA PRÁTICA -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="settings" style="width:16px;height:16px"></i>
+          Como funciona na prática
+        </div>
+        <h2 class="section-title">Escolha seu nível de acompanhamento.</h2>
+        <p class="section-subtitle">Além do squad, Luis Felipe oferece serviços pessoais para quem quer ir mais rápido e mais longe.</p>
+      </div>
+
+      <div class="services-grid fade-up">
+        <!-- Consultoria -->
+        <div class="service-card">
+          <div class="service-icon">
+            <i data-lucide="video" style="width:24px;height:24px"></i>
+          </div>
+          <h3>Consultoria</h3>
+          <div class="service-price"><span class="currency">$</span>497</div>
+          <p class="service-desc">
+            Uma sessão estratégica de 1 hora ao vivo com Luis Felipe. Ele analisa seu caso, identifica oportunidades e traça um roadmap personalizado para seus mind-clones.
+          </p>
+          <ul class="service-features-list">
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad completo incluso ($197)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 1h ao vivo com Luis Felipe</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Análise do seu caso de uso</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Roadmap personalizado</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Gravação da sessão</li>
+          </ul>
+        </div>
+
+        <!-- Tutoria (Featured) -->
+        <div class="service-card service-featured">
+          <div class="service-badge badge-green">Melhor valor</div>
+          <div class="service-icon">
+            <i data-lucide="graduation-cap" style="width:24px;height:24px"></i>
+          </div>
+          <h3>Tutoria</h3>
+          <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>997</div>
+          <p class="service-desc">
+            5 dias intensivos (1h/dia) com Luis Felipe. Ele configura tudo junto com você, cria seu primeiro mind-clone ao vivo e acompanha a implementação completa.
+          </p>
+          <ul class="service-features-list">
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad completo incluso ($197)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 sessões ao vivo (1h/dia)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Setup completo do ambiente</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clone criado junto</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Suporte direto por 30 dias</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Acesso ao grupo exclusivo</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Gravações de todas as sessões</li>
+          </ul>
+        </div>
+
+        <!-- Implementação (Premium) -->
+        <div class="service-card service-premium">
+          <div class="service-badge badge-gold">Premium</div>
+          <div class="service-icon" style="background: rgba(245, 197, 66, 0.1); color: var(--color-gold);">
+            <i data-lucide="rocket" style="width:24px;height:24px"></i>
+          </div>
+          <h3>Implementação</h3>
+          <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>2.497<span style="font-size: 18px; -webkit-text-fill-color: inherit;">+</span></div>
+          <p class="service-desc">
+            Entrega completa. Luis Felipe implementa tudo para o seu nicho — squads configurados, mind-clones criados e calibrados, go-to-market pronto.
+          </p>
+          <ul class="service-features-list">
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Tudo do Squad + Tutoria incluso</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Implementação personalizada</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squads configurados para seu nicho</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Integração com seus sistemas</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clones criados e calibrados</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Suporte prioritário por 60 dias</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Consultoria de go-to-market</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE STACK -->
+  <section class="value-stack section" id="pricing">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="layers" style="width:16px;height:16px"></i>
+          Value Stack
+        </div>
+        <h2 class="section-title">Vamos fazer a conta.</h2>
+        <p class="section-subtitle">Porque números não mentem.</p>
+      </div>
+
+      <table class="value-table fade-up">
+        <thead>
+          <tr>
+            <th>O que você recebe</th>
+            <th style="text-align:right">Valor separado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="item-name">🔥 FORGE — Pipeline Industrial</div>
+              <div class="item-desc">7 agentes, 3 workflows de processamento de conhecimento</div>
+            </td>
+            <td class="item-value">$2.000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">⚗️ ALCHEMIST — Extrator de DNA</div>
+              <div class="item-desc">8 agentes, 3 workflows de extração e mind-clones</div>
+            </td>
+            <td class="item-value">$5.000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">⚖️ CONCLAVE — Board de Advisors IA</div>
+              <div class="item-desc">7 agentes, 3 workflows de deliberação estruturada</div>
+            </td>
+            <td class="item-value">$3.000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🏗️ ARCHITECT — Builder de Produto</div>
+              <div class="item-desc">7 agentes, 8 fases de build completo</div>
+            </td>
+            <td class="item-value">$5.000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🌎 AMBASSADOR — Go-to-Market</div>
+              <div class="item-desc">7 agentes, 3 workflows para o mercado brasileiro</div>
+            </td>
+            <td class="item-value">$3.000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🔗 Protocolos de Integração</div>
+              <div class="item-desc">ACID handoffs, circuit breaker, validação FONTE</div>
+            </td>
+            <td class="item-value">$1.000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🤖 36 Agentes Especializados</div>
+              <div class="item-desc">Personas, workflows e quality gates completos</div>
+            </td>
+            <td class="item-value">$3.000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">🔍 Rastreabilidade Total</div>
+              <div class="item-desc">Cada output ligado à fonte original (^[FONTE])</div>
+            </td>
+            <td class="item-value">$500</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">📚 Documentação Completa</div>
+              <div class="item-desc">READMEs, specs, protocolos de integração</div>
+            </td>
+            <td class="item-value">$500</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td class="item-name">VALOR TOTAL</td>
+            <td class="item-value">$23.000</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <!-- Price Reveal -->
+      <div class="price-reveal fade-up">
+        <div class="price-crossed">$23.000</div>
+        <div class="price-actual">$197</div>
+        <div class="price-percentage">
+          Isso é <strong>0.86%</strong> do valor total. E a partir de <strong>$497</strong> Luis Felipe faz junto com você.
+        </div>
+      </div>
+
+      <!-- Pricing Tiers -->
+      <div class="pricing-grid fade-up">
+        <!-- Tier 1: Squad -->
+        <div class="pricing-card">
+          <h3>Squad</h3>
+          <p class="pricing-desc">Para quem já domina Claude Code e sabe o que fazer com os agentes. DIY — faça você mesmo.</p>
+          <div class="pricing-price">
+            <span class="currency">$</span>197
+            <span class="period">pagamento único</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 5 squads completos (36 agentes)</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 15 workflows automatizados</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Protocolos de integração ACID</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Documentação completa</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Licença MIT</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Atualizações vitalícias</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> Consultoria com especialista</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> Tutoria personalizada</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> Implementação sob medida</li>
+          </ul>
+          <a href="https://squads.sh/pt/gutomec/fabrica-de-genios/fabrica-de-genios" class="btn-secondary">
+            Quero o Squad — $197
+          </a>
+        </div>
+
+        <!-- Tier 2: Consultoria -->
+        <div class="pricing-card">
+          <h3>Consultoria</h3>
+          <p class="pricing-desc">Squad completo + 1 hora ao vivo com Luis Felipe para analisar seu caso e traçar o roadmap.</p>
+          <div class="pricing-price">
+            <span class="currency">$</span>497
+            <span class="period">pagamento único</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> <strong style="color: var(--color-text-primary);">Tudo do Squad incluso</strong></li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 1h de consultoria ao vivo com Luis Felipe</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Análise do seu caso de uso</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Roadmap personalizado</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Gravação da sessão</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> Tutoria de 5 dias</li>
+            <li class="disabled"><i data-lucide="x" style="width:16px;height:16px"></i> Implementação sob medida</li>
+          </ul>
+          <span class="btn-disabled">
+            Consultoria — $497 <span class="coming-soon-tag">Em breve</span>
+          </span>
+        </div>
+
+        <!-- Tier 3: Tutoria (FEATURED) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Melhor valor</div>
+          <h3>Tutoria</h3>
+          <p class="pricing-desc">Squad + 5 dias de tutoria intensiva (1h/dia) com Luis Felipe. Seu mind-clone criado junto.</p>
+          <div class="pricing-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <span class="currency" style="-webkit-text-fill-color: inherit; opacity: 1;">$</span>997
+            <span class="period" style="-webkit-text-fill-color: var(--color-text-muted);">pagamento único</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> <strong style="color: var(--color-text-primary);">Tudo do Squad incluso</strong></li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> 5 sessões ao vivo (1h/dia por 5 dias)</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Setup completo do seu ambiente</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Seu primeiro mind-clone criado junto</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Acompanhamento na implementação</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Suporte direto por 30 dias</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Acesso ao grupo exclusivo</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Gravações de todas as sessões</li>
+          </ul>
+          <span class="btn-disabled">
+            Tutoria — $997 <span class="coming-soon-tag">Em breve</span>
+          </span>
+        </div>
+
+        <!-- Tier 4: Implementação (PREMIUM) -->
+        <div class="pricing-card premium">
+          <div class="pricing-badge gold">Premium</div>
+          <h3>Implementação</h3>
+          <p class="pricing-desc">Entrega completa e personalizada. Configuramos tudo para o seu nicho — do squad ao go-to-market.</p>
+          <div class="pricing-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            <span class="currency" style="-webkit-text-fill-color: inherit; opacity: 1;">$</span>2.497<span style="font-size: 24px; -webkit-text-fill-color: inherit;">+</span>
+            <span class="period" style="-webkit-text-fill-color: var(--color-text-muted);">sob consulta</span>
+          </div>
+          <ul class="pricing-features">
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> <strong style="color: var(--color-text-primary);">Tudo do Squad + Tutoria incluso</strong></li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Implementação completa e personalizada</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Configuração dos squads para o seu nicho</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Integração com seus sistemas existentes</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Mind-clones criados e calibrados</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Suporte prioritário por 60 dias</li>
+            <li><i data-lucide="check" style="width:16px;height:16px"></i> Consultoria estratégica de go-to-market</li>
+          </ul>
+          <span class="btn-disabled">
+            Fale Conosco <span class="coming-soon-tag">Em breve</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHO -->
+  <section class="section">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="users" style="width:16px;height:16px"></i>
+          Para quem é
+        </div>
+        <h2 class="section-title">Quem deveria comprar</h2>
+      </div>
+
+      <div class="audience-grid fade-up">
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="mic" style="width:22px;height:22px"></i></div>
+          <h3>Infoprodutores</h3>
+          <p>Transforme seu conhecimento (ou de mentores que você estuda) em agentes IA que trabalham 24/7 vendendo e atendendo.</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="building-2" style="width:22px;height:22px"></i></div>
+          <h3>Agências</h3>
+          <p>Clone a expertise dos seus melhores consultores para escalar atendimento sem escalar headcount.</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="briefcase" style="width:22px;height:22px"></i></div>
+          <h3>Empresas</h3>
+          <p>Pare de perder IP quando funcionários-chave saem. Capture o conhecimento em mind-clones permanentes.</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="search" style="width:22px;height:22px"></i></div>
+          <h3>Pesquisadores</h3>
+          <p>Sintetize centenas de fontes em inteligência acionável. Delibere com "versões IA" de pensadores que você admira.</p>
+        </div>
+        <div class="audience-card">
+          <div class="card-icon"><i data-lucide="video" style="width:22px;height:22px"></i></div>
+          <h3>Criadores de Conteúdo</h3>
+          <p>Crie um board de advisors IA com as mentes que você mais admira. Debata ideias 24/7 sem custo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT FOR YOU -->
+  <section class="not-for-you section">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label" style="color: var(--color-red);">
+          <i data-lucide="x-circle" style="width:16px;height:16px"></i>
+          Quem NÃO deveria comprar
+        </div>
+        <h2 class="section-title">Não é para todo mundo.</h2>
+        <p class="section-subtitle">E tudo bem. Honestidade primeiro.</p>
+      </div>
+
+      <div class="not-for-you-list fade-up">
+        <div class="not-for-you-item">
+          <i data-lucide="x" style="width:20px;height:20px"></i>
+          <p><strong>Quem quer um chatbot genérico.</strong> Isso é ChatGPT. Vai lá. A Fábrica de Gênios é um pipeline industrial, não um brinquedo.</p>
+        </div>
+        <div class="not-for-you-item">
+          <i data-lucide="x" style="width:20px;height:20px"></i>
+          <p><strong>Quem não tem conhecimento bruto para processar.</strong> Sem input, sem output. Você precisa de matéria-prima — vídeos, PDFs, transcrições.</p>
+        </div>
+        <div class="not-for-you-item">
+          <i data-lucide="x" style="width:20px;height:20px"></i>
+          <p><strong>Quem acha que IA substitui trabalho.</strong> A Fábrica multiplica trabalho — não elimina. Você ainda precisa pensar. Só que agora com 36 cérebros extras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE -->
+  <section class="guarantee section" id="guarantee">
+    <div class="container fade-up">
+      <div class="section-label" style="justify-content: center;">
+        <i data-lucide="shield-check" style="width:16px;height:16px"></i>
+        Garantia
+      </div>
+      <br>
+      <div class="guarantee-box" style="max-width: 1000px;">
+        <div class="guarantee-icon">
+          <i data-lucide="shield-check" style="width:32px;height:32px"></i>
+        </div>
+        <h3>Garantia diferente para cada plano.</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); text-align: left; margin-top: var(--space-lg);">
+          <div>
+            <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Squad — $197</p>
+            <p>
+              Bug fix no código — sem custo adicional. Se rodar o pipeline e algo der errado no código, abrimos issue e corrigimos. <strong style="color: var(--color-text-primary);">Garantia técnica total.</strong>
+            </p>
+          </div>
+          <div>
+            <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Consultoria — $497</p>
+            <p>
+              Se a sessão de 1h com Luis Felipe não entregar valor prático para o seu caso, <strong style="color: var(--color-text-primary);">devolvemos os $300 da consultoria.</strong> Você fica com o squad.
+            </p>
+          </div>
+          <div>
+            <p style="font-weight: 700; color: var(--color-accent); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Tutoria — $997</p>
+            <p>
+              Ao final dos 5 dias com Luis Felipe, você terá pelo menos 1 mind-clone funcional rodando — ou <strong style="color: var(--color-text-primary);">devolvemos 100% do valor.</strong> Sem letras miúdas.
+            </p>
+          </div>
+          <div>
+            <p style="font-weight: 700; font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px; background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Implementação — $2.497+</p>
+            <p>
+              Resultado garantido por contrato. Entregamos tudo funcionando ou <strong style="color: var(--color-text-primary);">reembolso proporcional.</strong> Escopo e garantias definidos antes de começar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATH -->
+  <section class="section">
+    <div class="container">
+      <div class="pipeline-header fade-up">
+        <div class="section-label">
+          <i data-lucide="calculator" style="width:16px;height:16px"></i>
+          A Matemática Final
+        </div>
+        <h2 class="section-title">Vamos ser diretos.</h2>
+        <p class="section-subtitle">Porque direto é o único jeito.</p>
+      </div>
+
+      <div class="math-grid fade-up">
+        <div class="math-card">
+          <div class="math-label">Board de advisors</div>
+          <div class="math-value">$50.000–$500.000/ano</div>
+        </div>
+        <div class="math-card">
+          <div class="math-label">Consultor de go-to-market</div>
+          <div class="math-value">$10.000–$50.000/projeto</div>
+        </div>
+        <div class="math-card">
+          <div class="math-label">Equipe de engenharia IA</div>
+          <div class="math-value">$200.000+/ano</div>
+        </div>
+        <div class="math-card">
+          <div class="math-label">Pipeline de conhecimento custom</div>
+          <div class="math-value">$50.000–$100.000</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-xl);" class="fade-up">
+        <p style="font-family: var(--font-serif); font-size: 20px; color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
+          A Fábrica de Gênios entrega <strong style="color: var(--color-text-primary);">tudo isso</strong> a partir de:
+        </p>
+        <div class="price-actual" style="font-size: 80px;">$197</div>
+        <p style="font-size: 16px; color: var(--color-text-muted); margin-top: var(--space-sm);">
+          Squad sozinho — ou a partir de <strong style="color: var(--color-accent);">$497</strong> com acompanhamento de Luis Felipe
+        </p>
+        <p style="font-size: 18px; color: var(--color-text-secondary); margin-top: var(--space-lg);">
+          A pergunta não é "posso pagar?". A pergunta é <strong style="color: var(--color-text-primary);">"posso me dar ao luxo de NÃO comprar?"</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="buy">
+    <div class="container">
+      <div class="final-cta-content fade-up">
+        <h2>
+          Uma decisão.<br>
+          Zero arrependimento.
+        </h2>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-2xl);">
+          <a href="https://squads.sh/pt/gutomec/fabrica-de-genios/fabrica-de-genios" class="btn-secondary" style="font-size: 16px; padding: 16px 28px;">
+            Squad — $197
+          </a>
+          <span class="btn-disabled" style="font-size: 16px; padding: 16px 28px; width: auto;">
+            Consultoria — $497 <span class="coming-soon-tag">Em breve</span>
+          </span>
+          <span class="btn-disabled" style="font-size: 16px; padding: 16px 28px; width: auto;">
+            Tutoria — $997 <span class="coming-soon-tag">Em breve</span>
+          </span>
+          <span class="btn-disabled" style="font-size: 16px; padding: 16px 28px; width: auto;">
+            Implementação — $2.497+ <span class="coming-soon-tag">Em breve</span>
+          </span>
+        </div>
+        <div class="includes">
+          <span><i data-lucide="check" style="width:16px;height:16px"></i> Squad incluso em todos os planos</span>
+          <span><i data-lucide="check" style="width:16px;height:16px"></i> 36 agentes IA</span>
+          <span><i data-lucide="check" style="width:16px;height:16px"></i> Licença MIT</span>
+        </div>
+        <p class="final-quote">
+          "Make offers so good people feel stupid saying no."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Language Selector -->
+      <div style="margin-bottom: var(--space-lg); display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap;">
+        <a href="index.html" style="font-weight: 700; color: var(--color-accent);">Português</a>
+        <a href="en.html">English</a>
+        <a href="es.html">Español</a>
+        <a href="zh.html">中文</a>
+        <a href="hi.html">हिन्दी</a>
+        <a href="ar.html">العربية</a>
+      </div>
+      <p>FÁBRICA DE GÊNIOS v1.0.0 — Entra conhecimento bruto. Saem gênios imortais.</p>
+      <p style="margin-top: 4px;">36 agentes · 5 squads · 1 pipeline · a partir de $197</p>
+      <ul class="footer-links">
+        <li><a href="#pricing">Comprar</a></li>
+        <li><a href="https://github.com/gutomec/fabrica-de-genios">GitHub</a></li>
+        <li><a href="#">Documentação</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // GSAP ScrollTrigger animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Fade up animations for all .fade-up elements
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 85%',
+            once: true
+          }
+        }
+      );
+    });
+
+    // Animate hero stats numbers
+    document.querySelectorAll('.hero-stat-number').forEach(el => {
+      const target = el.textContent.replace('$', '');
+      const isPrice = el.textContent.includes('$');
+      const num = parseInt(target);
+
+      if (!isNaN(num)) {
+        gsap.from(el, {
+          textContent: 0,
+          duration: 2,
+          ease: 'power2.out',
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 90%',
+            once: true
+          },
+          onUpdate: function() {
+            el.textContent = (isPrice ? '$' : '') + Math.round(parseFloat(el.textContent.replace('$', '')));
+          },
+          onComplete: function() {
+            el.textContent = (isPrice ? '$' : '') + num;
+          }
+        });
+      }
+    });
+
+    // Pipeline flow items stagger
+    gsap.fromTo('.pipeline-flow-item',
+      { opacity: 0, y: 20, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: '.pipeline-flow',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Squad cards stagger
+    gsap.fromTo('.squad-card',
+      { opacity: 0, x: -30 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.squad-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Value table rows stagger
+    gsap.fromTo('.value-table tbody tr',
+      { opacity: 0, x: -20 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.value-table',
+          start: 'top 75%',
+          once: true
+        }
+      }
+    );
+
+    // Price reveal animation
+    gsap.fromTo('.price-actual',
+      { scale: 0.5, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'back.out(1.5)',
+        scrollTrigger: {
+          trigger: '.price-reveal',
+          start: 'top 75%',
+          once: true
+        }
+      }
+    );
+
+    // Math cards stagger
+    gsap.fromTo('.math-card',
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.math-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Specialist section photo animation
+    gsap.fromTo('.specialist-photo',
+      { opacity: 0, scale: 0.8, rotation: -5 },
+      {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 0.8,
+        ease: 'back.out(1.2)',
+        scrollTrigger: {
+          trigger: '.specialist-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Service cards stagger
+    gsap.fromTo('.service-card',
+      { opacity: 0, y: 30, scale: 0.95 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.services-grid',
+          start: 'top 80%',
+          once: true
+        }
+      }
+    );
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Nav background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav');
+      if (window.scrollY > 50) {
+        nav.style.borderBottomColor = 'var(--color-border-light)';
+      } else {
+        nav.style.borderBottomColor = 'var(--color-border)';
+      }
+    });
+
+    // ============================================
+    // NEURAL SYNTHESIZER — Animation
+    // ============================================
+    (function() {
+      var stage = document.querySelector('.neural-stage');
+      var animLayer = document.getElementById('neuralAnimLayer');
+      var core = document.getElementById('processorCore');
+      if (!stage || !animLayer || !core) return;
+
+      var outputIds = ['outputMindClones', 'outputPlaybooks', 'outputReceita'];
+      var cables = {};
+
+      var contextRouter = [
+        { text: 'PDFS ESQUECIDOS', target: 'outputMindClones' },
+        { text: 'HORAS PERDIDAS', target: 'outputReceita' },
+        { text: 'TRANSCRIÇÕES MORTAS', target: 'outputMindClones' },
+        { text: 'CONHECIMENTO PRESO', target: 'outputPlaybooks' },
+        { text: 'CONTEÚDO DUPLICADO', target: 'outputPlaybooks' },
+        { text: 'DRIVE BAGUNÇADO', target: 'outputPlaybooks' },
+        { text: 'VÍDEOS ASSISTIDOS', target: 'outputMindClones' },
+        { text: 'LIVROS PARADOS', target: 'outputMindClones' },
+        { text: 'MATERIAL BRUTO', target: 'outputReceita' },
+        { text: 'ANOTAÇÕES SOLTAS', target: 'outputPlaybooks' },
+        { text: 'CURSOS PARADOS', target: 'outputMindClones' },
+        { text: 'PODCASTS OUVIDOS', target: 'outputReceita' }
+      ];
+
+      function getCenter(el) {
+        var rect = el.getBoundingClientRect();
+        var stageRect = stage.getBoundingClientRect();
+        return {
+          x: (rect.left - stageRect.left) + (rect.width / 2),
+          y: (rect.top - stageRect.top) + (rect.height / 2)
+        };
+      }
+
+      function buildCables() {
+        animLayer.querySelectorAll('.data-cable-container').forEach(function(el) { el.remove(); });
+        cables = {};
+        var corePos = getCenter(core);
+
+        outputIds.forEach(function(id) {
+          var targetEl = document.getElementById(id);
+          if (!targetEl) return;
+          var iconNode = targetEl.querySelector('.output-icon');
+          var iconPos = getCenter(iconNode || targetEl);
+
+          var dx = iconPos.x - corePos.x;
+          var dy = iconPos.y - corePos.y;
+          var distance = Math.sqrt(dx * dx + dy * dy);
+          var angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+          var cableWrapper = document.createElement('div');
+          cableWrapper.className = 'data-cable-container';
+          cableWrapper.style.position = 'absolute';
+          cableWrapper.style.left = corePos.x + 'px';
+          cableWrapper.style.top = corePos.y + 'px';
+          cableWrapper.style.width = distance + 'px';
+          cableWrapper.style.transformOrigin = '0 50%';
+          cableWrapper.style.transform = 'rotate(' + angle + 'deg)';
+          cableWrapper.style.pointerEvents = 'none';
+
+          var cableLine = document.createElement('div');
+          cableLine.className = 'data-cable-base';
+          cableLine.style.width = '100%';
+          cableLine.style.height = '100%';
+          cableLine.style.opacity = '0.4';
+          cableWrapper.appendChild(cableLine);
+          animLayer.appendChild(cableWrapper);
+
+          cables[id] = { container: cableWrapper, distance: distance };
+        });
+      }
+
+      function dropContextualChaos() {
+        if (document.hidden) return;
+        var context = contextRouter[Math.floor(Math.random() * contextRouter.length)];
+
+        var el = document.createElement('div');
+        el.className = 'chaos-word';
+        el.textContent = context.text;
+        el.isAbsorbed = false;
+        animLayer.appendChild(el);
+
+        var corePos = getCenter(core);
+        var coreRadius = core.offsetWidth / 2;
+        var stageWidth = stage.offsetWidth;
+        var startX = (stageWidth / 2) + (Math.random() - 0.5) * (stageWidth * 0.6);
+        var startY = -40;
+
+        gsap.set(el, { x: startX, y: startY, opacity: 0, scale: 0.9 });
+        gsap.to(el, { opacity: 1, duration: 0.4 });
+
+        var dropTween = gsap.to(el, {
+          x: corePos.x,
+          y: corePos.y,
+          duration: 2.8 + Math.random() * 0.5,
+          ease: 'power2.in',
+          rotation: (Math.random() - 0.5) * 15,
+          onUpdate: function() {
+            var currentX = gsap.getProperty(el, 'x');
+            var currentY = gsap.getProperty(el, 'y');
+            var dx = currentX - corePos.x;
+            var dy = currentY - corePos.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist <= coreRadius + 15 && !el.isAbsorbed) {
+              el.isAbsorbed = true;
+              dropTween.kill();
+              gsap.to(el, {
+                scale: 0,
+                opacity: 0,
+                duration: 0.15,
+                x: corePos.x,
+                y: corePos.y,
+                onComplete: function() {
+                  el.remove();
+                  triggerContextualCharge(context.target);
+                }
+              });
+            }
+          }
+        });
+      }
+
+      function triggerContextualCharge(targetId) {
+        // Core icon flashes red → green
+        var coreIcon = core.querySelector('svg');
+        if (coreIcon) {
+          gsap.fromTo(coreIcon,
+            { scale: 1.2, color: '#ff4444', filter: 'drop-shadow(0 0 30px #ff4444)' },
+            { scale: 1, color: 'var(--color-accent)', filter: 'drop-shadow(0 0 15px rgba(29,204,93,0.6))', duration: 0.5, ease: 'power2.out' }
+          );
+        }
+        // Core border flashes red → green
+        gsap.fromTo(core,
+          { borderColor: 'rgba(255,68,68,0.6)', boxShadow: '0 0 40px rgba(255,68,68,0.2) inset' },
+          { borderColor: 'rgba(29,204,93,0.5)', boxShadow: '0 0 50px var(--color-accent-glow) inset, 0 0 40px rgba(29,204,93,0.15)', duration: 0.6 }
+        );
+
+        // Expanding pulse ring
+        var ring = document.createElement('div');
+        ring.className = 'core-pulse-ring';
+        ring.style.opacity = '0.6';
+        core.appendChild(ring);
+        gsap.to(ring, {
+          scale: 1.4, opacity: 0, duration: 0.6, ease: 'power2.out',
+          onComplete: function() { ring.remove(); }
+        });
+
+        // Send charge along cable to output
+        var route = cables[targetId];
+        var targetEl = document.getElementById(targetId);
+        if (!route) return;
+
+        var pulse = document.createElement('div');
+        pulse.className = 'charge-pulse';
+        route.container.appendChild(pulse);
+
+        gsap.fromTo(pulse,
+          { x: 0, opacity: 1 },
+          { x: route.distance, opacity: 0, duration: 0.8, ease: 'power1.inOut',
+            onComplete: function() {
+              pulse.remove();
+              lightUpNode(targetEl);
+            }
+          }
+        );
+      }
+
+      function lightUpNode(targetEl) {
+        var node = targetEl.querySelector('.output-icon');
+        var icon = node ? node.querySelector('svg') : null;
+
+        if (node) {
+          gsap.fromTo(node,
+            { borderColor: 'var(--color-accent)', boxShadow: '0 0 35px rgba(29,204,93,0.5)' },
+            { borderColor: 'var(--color-border)', boxShadow: '0 10px 30px rgba(0,0,0,0.8)', duration: 1.2, ease: 'power2.out' }
+          );
+        }
+        if (icon) {
+          gsap.fromTo(icon,
+            { color: '#ffffff', scale: 1.3 },
+            { color: 'var(--color-text-muted)', scale: 1, duration: 0.8, ease: 'bounce.out' }
+          );
+        }
+      }
+
+      // Build cables on load and resize
+      buildCables();
+      window.addEventListener('resize', function() {
+        clearTimeout(window.cableResizeTimer);
+        window.cableResizeTimer = setTimeout(buildCables, 200);
+      });
+
+      // Start spawning on scroll trigger
+      var spawnInterval = null;
+      ScrollTrigger.create({
+        trigger: '.neural-section',
+        start: 'top 80%',
+        onEnter: function() {
+          if (!spawnInterval) {
+            setTimeout(dropContextualChaos, 400);
+            spawnInterval = setInterval(dropContextualChaos, 2600);
+          }
+        },
+        onLeaveBack: function() {
+          if (spawnInterval) { clearInterval(spawnInterval); spawnInterval = null; }
+        }
+      });
+
+      // GSAP entrance
+      gsap.fromTo('.neural-stage',
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1, y: 0, duration: 1, ease: 'power2.out',
+          scrollTrigger: { trigger: '.neural-section', start: 'top 85%', once: true }
+        }
+      );
+    })();
+
+    // ============================================
+    // CLONE FACTORY — Animation
+    // ============================================
+    (function() {
+      var belt = document.getElementById('conveyorBelt');
+      var container = document.getElementById('factoryContainer');
+      if (!belt || !container) return;
+
+      var userSvg = '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>';
+
+      // Create clone nodes
+      var nodeCount = 24;
+      for (var i = 0; i < nodeCount; i++) {
+        var node = document.createElement('div');
+        node.className = 'clone-node';
+        var iconDiv = document.createElement('div');
+        iconDiv.className = 'clone-icon';
+        iconDiv.innerHTML = userSvg;
+        node.appendChild(iconDiv);
+        belt.appendChild(node);
+      }
+
+      // Duplicate belt for infinite loop
+      belt.innerHTML += belt.innerHTML;
+
+      // Scanner detection
+      function detectScanning() {
+        var containerRect = container.getBoundingClientRect();
+        var centerX = containerRect.left + containerRect.width / 2;
+        var scanRange = 50;
+        var nodes = belt.querySelectorAll('.clone-node');
+        nodes.forEach(function(node) {
+          var nodeRect = node.getBoundingClientRect();
+          var nodeCenterX = nodeRect.left + nodeRect.width / 2;
+          if (Math.abs(nodeCenterX - centerX) < scanRange) {
+            node.classList.add('scanning');
+          } else {
+            node.classList.remove('scanning');
+          }
+        });
+        requestAnimationFrame(detectScanning);
+      }
+
+      // Start detection on scroll trigger
+      ScrollTrigger.create({
+        trigger: '.factory-section',
+        start: 'top 80%',
+        onEnter: function() {
+          requestAnimationFrame(detectScanning);
+        },
+        once: true
+      });
+
+      // GSAP entrance
+      gsap.fromTo('.factory-header',
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
+          scrollTrigger: { trigger: '.factory-section', start: 'top 85%', once: true }
+        }
+      );
+      gsap.fromTo('.factory-container',
+        { opacity: 0, scale: 0.95 },
+        {
+          opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out',
+          scrollTrigger: { trigger: '.factory-container', start: 'top 85%', once: true }
+        }
+      );
+    })();
+  </script>
+
+</body>
+</html>
