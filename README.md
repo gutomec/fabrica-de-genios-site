@@ -64,9 +64,11 @@ Não é um chatbot. Não é um prompt. É um **sistema industrial de processamen
 
 ## Quem Está Por Trás
 
-**Luis Felipe** — Arquiteto de Sistemas de IA, criador da Fábrica de Gênios. +15 anos de experiência em engenharia de software, especialista em arquiteturas multi-agente e orquestração de sistemas inteligentes.
+**Luiz Rodrigues** — Engenheiro de Inteligência Artificial. Desenvolveu o sistema Fábrica de Gênios — a arquitetura multi-agente, o pipeline de 5 estágios, os 36 agentes especializados e todos os protocolos de integração. O cérebro técnico por trás da engenharia.
 
-> "Conhecimento preso em PDFs é potencial desperdiçado. A Fábrica de Gênios não é um curso — é um pipeline industrial que transforma tudo que você sabe em inteligências que trabalham por você."
+**Luis Felipe** — Arquiteto de Soluções Estratégicas em IA. Testou, validou e opera a Fábrica de Gênios no mercado. Responsável pela consultoria, tutoria e implementação — é quem coloca o sistema para rodar no seu negócio.
+
+> "IA não é mágica. É arquitetura que potencializa quem sabe usar."
 
 ---
 

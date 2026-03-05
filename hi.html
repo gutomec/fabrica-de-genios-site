@@ -1427,6 +1427,72 @@
       line-height: 1.6;
     }
 
+    .specialist-skills-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-skills {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-skills li {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .specialist-skills li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .specialist-philosophy {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-philosophy p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .specialist-philosophy p strong { color: var(--color-text-primary); }
+
+    .specialist-philosophy .philosophy-warning {
+      color: var(--color-orange);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 14px;
+      margin-top: var(--space-md);
+    }
+
+    .specialist-philosophy .philosophy-closing {
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      margin-top: var(--space-md);
+    }
+
     /* ============================================
        SERVICES SECTION (Como Funciona na Prática)
        ============================================ */
@@ -1706,7 +1772,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#pipeline">पाइपलाइन</a></li>
-        <li><a href="#specialist">विशेषज्ञ</a></li>
+        <li><a href="#specialist">कौन बनाता है</a></li>
         <li><a href="#services">सेवाएं</a></li>
         <li><a href="#pricing">कीमत</a></li>
       </ul>
@@ -1967,38 +2033,43 @@
     </div>
   </section>
 
-  <!-- BLOCO 1: इसके पीछे कौन है -->
+  <!-- BLOCO 1: मशीन कौन बनाता है -->
   <section class="specialist-section section" id="specialist">
     <div class="container">
       <div class="pipeline-header fade-up">
         <div class="section-label">
           <i data-lucide="user-check" style="width:16px;height:16px"></i>
-          इसके पीछे कौन है
+          मशीन कौन बनाता है
         </div>
-        <h2 class="section-title">यह सिर्फ कोड नहीं है। इसके पीछे एक विशेषज्ञ है।</h2>
+        <h2 class="section-title">Luis Felipe उपकरण नहीं बेचते।<br>वे व्यवसायों को बदलने वाली वास्तुकला डिज़ाइन करते हैं।</h2>
       </div>
 
       <div class="specialist-grid fade-up">
         <div class="specialist-photo-wrapper">
-          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — जीनियस फैक्ट्री के निर्माता" class="specialist-photo">
+          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — AI रणनीतिक समाधान वास्तुकार" class="specialist-photo">
         </div>
         <div class="specialist-info">
           <h2>Luis Felipe</h2>
-          <div class="specialist-role">AI सिस्टम आर्किटेक्ट · Fábrica de Gênios के निर्माता</div>
+          <div class="specialist-role">AI रणनीतिक समाधान वास्तुकार</div>
           <p class="specialist-bio">
-            15 से अधिक वर्षों के अनुभव वाले सॉफ्टवेयर इंजीनियर, मल्टी-एजेंट AI आर्किटेक्चर और इंटेलिजेंट सिस्टम ऑर्केस्ट्रेशन के विशेषज्ञ। उन्होंने Fábrica de Gênios को एक औद्योगिक फ्रेमवर्क के रूप में बनाया जो कच्चे ज्ञान को कार्यात्मक AI माइंड-क्लोन में बदलता है — और अब वे उन लोगों के लिए परामर्श, ट्यूटरिंग और पूर्ण कार्यान्वयन सेवाएं प्रदान करते हैं जो इस प्रक्रिया को तेज़ करना चाहते हैं।
+            उन परियोजनाओं में प्रत्यक्ष अनुभव जो R$ 10 मिलियन से अधिक सत्यापित राजस्व पार कर गए और 7,000 से अधिक छात्रों को प्रभावित किया। 50 से अधिक कस्टम आर्टिफिशियल इंटेलिजेंस असिस्टेंट्स के निर्माता, जिनमें उन्नत GPTs और स्वायत्त Sentinels शामिल हैं जो बिना निगरानी के 24 घंटे काम करने के लिए डिज़ाइन किए गए हैं।
           </p>
-          <div class="specialist-tags">
-            <span class="specialist-tag">Claude Code</span>
-            <span class="specialist-tag">Multi-Agent Systems</span>
-            <span class="specialist-tag">Mind-Clones</span>
-            <span class="specialist-tag">AI Orchestration</span>
-            <span class="specialist-tag">Knowledge Pipelines</span>
-            <span class="specialist-tag">इंफोप्रोडक्ट्स</span>
+          <p class="specialist-bio">
+            Community और Lendár[IA] Training के संस्थापक सदस्य और पूर्व टीम सदस्य, उन्होंने ब्राज़ील में पहले AI मैनेजर प्रशिक्षण कार्यक्रमों में से एक के लॉन्च का पर्दे के पीछे नज़दीक से अनुभव किया। आज वे Obsidian में 9,900+ परस्पर जुड़े नोट्स के Business Second Brain के साथ काम करते हैं, जो 3 वर्षों में प्रक्रियाओं, प्रणालियों और उच्च-प्रदर्शन पद्धतियों की रिवर्स-इंजीनियरिंग के माध्यम से बनाया गया।
+          </p>
+          <div class="specialist-skills-label">परामर्श और ट्यूटरिंग में आपको जो विशेषज्ञता मिलेगी:</div>
+          <ul class="specialist-skills">
+            <li>उच्च-स्तरीय Prompt Engineering</li>
+            <li>Multi-Agent Design और Squad निर्माण</li>
+            <li>प्रक्रिया मैपिंग, वाणिज्यिक संरचना और ऑफर सुधार</li>
+            <li>Digital Clones (विशेषज्ञ, स्पेशलिस्ट और लेखक) और Faithful Neo Clones</li>
+            <li>व्यक्तिगत और व्यावसायिक Second Brain का व्यवसाय में अनुप्रयोग</li>
+          </ul>
+          <div class="specialist-philosophy">
+            <p><strong>रणनीति</strong> पहले। <strong>प्रक्रियाएं और सिस्टम</strong> दूसरे। <strong>योजना</strong> तीसरी। <strong>दिशा</strong> चौथी। <strong>AI</strong> अंत में।</p>
+            <p class="philosophy-warning">क्रम मायने रखता है। चरणों को छोड़ने से स्वचालित अराजकता पैदा होती है।</p>
+            <p class="philosophy-closing">AI जादू नहीं है। यह वास्तुकला है जो जानने वालों को सशक्त बनाती है।</p>
           </div>
-          <p class="specialist-quote">
-            "PDF में बंद ज्ञान बर्बाद संभावना है। Fábrica de Gênios कोई कोर्स नहीं है — यह एक औद्योगिक पाइपलाइन है जो आपकी हर जानकारी को ऐसी बुद्धिमत्ता में बदलती है जो आपके लिए काम करती है।"
-          </p>
         </div>
       </div>
     </div>
@@ -2012,8 +2083,7 @@
           <i data-lucide="settings" style="width:16px;height:16px"></i>
           व्यवहार में कैसे काम करता है
         </div>
-        <h2 class="section-title">अपना सहायता स्तर चुनें।</h2>
-        <p class="section-subtitle">Squad के अलावा, Luis Felipe उन लोगों के लिए व्यक्तिगत सेवाएं प्रदान करते हैं जो तेज़ और आगे जाना चाहते हैं।</p>
+        <h2 class="section-title">तीन रास्ते। एक परिणाम: आपके माइंड-क्लोन संचालित।</h2>
       </div>
 
       <div class="services-grid fade-up">
@@ -2024,16 +2094,20 @@
           </div>
           <h3>परामर्श</h3>
           <div class="service-price"><span class="currency">$</span>497</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            आपके मामले के लिए सर्जिकल दिशा।
+          </p>
           <p class="service-desc">
-            Luis Felipe के साथ 1 घंटे की लाइव रणनीतिक सेशन। वे आपके मामले का विश्लेषण करते हैं, अवसरों की पहचान करते हैं और आपके माइंड-क्लोन के लिए एक व्यक्तिगत रोडमैप तैयार करते हैं।
+            आपके पास Squad है। अब आपको यह जानना है कि अपने व्यवसाय में ठीक कहाँ से शुरू करें। Luis Felipe के साथ 1 घंटे लाइव में हम आपकी वास्तविकता का विश्लेषण करते हैं, पहचानते हैं कि 36 एजेंट्स में से कौन से पहले सक्रिय करें, कौन सा ज्ञान इंजेक्ट करें और पूर्ण कार्यान्वयन रोडमैप तैयार करते हैं। आप 72 घंटे की एक्शन प्लान और जब चाहें देखने के लिए रिकॉर्डिंग लेकर जाते हैं।
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> पूर्ण Squad शामिल ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Luis Felipe के साथ 1 घंटे लाइव</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपके उपयोग मामले का विश्लेषण</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> व्यक्तिगत रोडमैप</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> सेशन की रिकॉर्डिंग</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> पूर्ण Squad शामिल (5 squads, 36 agents, 15 workflows, आजीवन लाइसेंस)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Luis Felipe के साथ 1 घंटे लाइव परामर्श</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपके उपयोग मामले का व्यक्तिगत विश्लेषण</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> कस्टम कार्यान्वयन रोडमैप</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> पूर्ण सेशन रिकॉर्डिंग</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">उनके लिए आदर्श जिनके पास समस्या की स्पष्टता है और त्वरित, सटीक दिशा चाहिए।</p>
         </div>
 
         <!-- ट्यूटरिंग (Featured) -->
@@ -2044,18 +2118,23 @@
           </div>
           <h3>ट्यूटरिंग</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>997</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            साथ-साथ निर्माण। 5 दिनों में आपका पहला जीनियस लाइव।
+          </p>
           <p class="service-desc">
-            5 दिन गहन (1 घंटा/दिन) Luis Felipe के साथ। वे आपके साथ सब कुछ सेट करते हैं, लाइव पहला माइंड-क्लोन बनाते हैं और पूर्ण कार्यान्वयन में साथ देते हैं।
+            उनके लिए जो अकेले अंदाज़ा नहीं लगाना चाहते। 5 गहन सेशन में (5 दिनों तक प्रतिदिन 1 घंटा), Luis Felipe आपके साथ पूरा वातावरण सेट करते हैं, आपका पहला कैलिब्रेटेड माइंड-क्लोन बनाते हैं और कार्यान्वयन के हर चरण में साथ देते हैं। अंत में आपके पास एक कार्यशील एजेंट होता है, कागज़ पर सिद्धांत नहीं।
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> पूर्ण Squad शामिल ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 लाइव सेशन (1 घंटा/दिन)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> पूर्ण वातावरण सेटअप</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> साथ मिलकर माइंड-क्लोन बनाया</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 30 दिन सीधा सपोर्ट</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> विशेष समूह एक्सेस</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> पूर्ण Squad शामिल (5 squads, 36 agents, 15 workflows, आजीवन लाइसेंस)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 लाइव सेशन (5 लगातार दिनों तक 1 घंटा/दिन)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> पूर्ण workspace सेटअप</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपका पहला माइंड-क्लोन साथ मिलकर बनाया और कैलिब्रेट किया</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> व्यावहारिक कार्यान्वयन सहायता</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> कार्यक्रम के बाद 30 दिन सीधा सपोर्ट</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> विशेष छात्र समूह तक पहुंच</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> सभी सेशन की रिकॉर्डिंग</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">उनके लिए आदर्श जिन्हें रणनीतिक मार्गदर्शन चाहिए और सिस्टम को दिन 1 से काम करता देखना चाहते हैं।</p>
         </div>
 
         <!-- कार्यान्वयन (Premium) -->
@@ -2066,18 +2145,22 @@
           </div>
           <h3>कार्यान्वयन</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>2,497<span style="font-size: 18px; -webkit-text-fill-color: inherit;">+</span></div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            पूर्ण डिलीवरी। हम आपके निश के लिए सब कुछ करते हैं।
+          </p>
           <p class="service-desc">
-            पूर्ण डिलीवरी। Luis Felipe आपके निश के लिए सब कुछ कार्यान्वित करते हैं — Squad कॉन्फ़िगर, माइंड-क्लोन बनाए और कैलिब्रेट, go-to-market तैयार।
+            उद्यमियों और टीमों के लिए जो पूर्ण गति चाहते हैं। हम आपके बाज़ार के लिए squads कॉन्फ़िगर करते हैं, आपके सिस्टम के साथ एकीकरण करते हैं, माइंड-क्लोन बनाते और कैलिब्रेट करते हैं और सब कुछ काम करता हुआ डिलीवर करते हैं। आप मशीन तैयार, चालू और परिणाम देती हुई पाते हैं।
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad + ट्यूटरिंग सब शामिल</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> व्यक्तिगत कार्यान्वयन</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपके निश के लिए Squad कॉन्फ़िगर</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपके सिस्टम के साथ एकीकरण</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> माइंड-क्लोन बनाए और कैलिब्रेट</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad + ट्यूटरिंग सब कुछ शामिल</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपके निश के लिए पूर्ण व्यक्तिगत कार्यान्वयन</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपके बाज़ार के अनुकूल Squad कॉन्फ़िगरेशन</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> आपके मौजूदा सिस्टम और उपकरणों के साथ एकीकरण</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> माइंड-क्लोन बनाए, कैलिब्रेट और परीक्षण किए</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 60 दिन प्राथमिकता सपोर्ट</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Go-to-market परामर्श</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> रणनीतिक go-to-market परामर्श</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">उनके लिए आदर्श जो सीखने की अवस्था के बिना परिणाम चाहते हैं।</p>
         </div>
       </div>
     </div>
@@ -2369,25 +2452,25 @@
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Squad — $197</p>
             <p>
-              कोड बग फिक्स — बिना अतिरिक्त लागत। पाइपलाइन चलाने पर कोड में कोई गड़बड़ हो तो हम issue खोलकर ठीक करते हैं। <strong style="color: var(--color-text-primary);">पूर्ण तकनीकी गारंटी।</strong>
+              कोड बग फिक्स — बिना अतिरिक्त लागत। यदि आप पाइपलाइन चलाते हैं और कोड में कुछ गलत होता है, तो हम issue खोलते हैं और ठीक करते हैं। <strong style="color: var(--color-text-primary);">पूर्ण तकनीकी गारंटी।</strong>
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">परामर्श — $497</p>
             <p>
-              अगर Luis Felipe के साथ 1 घंटे की सेशन आपके केस के लिए व्यावहारिक मूल्य नहीं देती, <strong style="color: var(--color-text-primary);">तो हम $300 परामर्श शुल्क वापस करते हैं।</strong> Squad आपके पास रहता है।
+              यदि Luis Felipe के साथ 1 घंटे की सेशन आपके केस के लिए व्यावहारिक मूल्य नहीं देती, <strong style="color: var(--color-text-primary);">तो हम $300 परामर्श शुल्क वापस करते हैं।</strong> Squad आपके पास रहता है।
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-accent); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">ट्यूटरिंग — $997</p>
             <p>
-              Luis Felipe के साथ 5 दिन के अंत में, आपके पास कम से कम 1 कार्यशील माइंड-क्लोन होगा — या <strong style="color: var(--color-text-primary);">100% वापसी।</strong> कोई छिपी शर्तें नहीं।
+              Luis Felipe के साथ 5 दिन के अंत में, आपके पास कम से कम 1 चालू माइंड-क्लोन होगा — या <strong style="color: var(--color-text-primary);">100% वापसी।</strong> कोई छिपी शर्तें नहीं।
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-gold); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">कार्यान्वयन — $2,497+</p>
             <p>
-              अनुबंध द्वारा परिणाम गारंटी। सब कुछ काम करता हुआ डिलीवर या <strong style="color: var(--color-text-primary);">आनुपातिक रिफंड।</strong> शुरू करने से पहले दायरा और गारंटी तय।
+              अनुबंध द्वारा परिणाम गारंटी। हम सब कुछ काम करता हुआ डिलीवर करते हैं या <strong style="color: var(--color-text-primary);">आनुपातिक रिफंड।</strong> शुरू करने से पहले दायरा और गारंटी तय।
             </p>
           </div>
         </div>

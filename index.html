@@ -1721,6 +1721,74 @@
       line-height: 1.6;
     }
 
+    .specialist-skills-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-skills {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-skills li {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .specialist-skills li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .specialist-philosophy {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-philosophy p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .specialist-philosophy p strong {
+      color: var(--color-text-primary);
+    }
+
+    .specialist-philosophy .philosophy-warning {
+      color: var(--color-orange);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 14px;
+      margin-top: var(--space-md);
+    }
+
+    .specialist-philosophy .philosophy-closing {
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      margin-top: var(--space-md);
+    }
+
     /* ============================================
        SERVICES SECTION (Como Funciona na Prática)
        ============================================ */
@@ -2043,7 +2111,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#pipeline">Pipeline</a></li>
-        <li><a href="#specialist">Especialista</a></li>
+        <li><a href="#specialist">Quem constrói</a></li>
         <li><a href="#services">Serviços</a></li>
         <li><a href="#pricing">Preço</a></li>
       </ul>
@@ -2343,38 +2411,43 @@
     </div>
   </section>
 
-  <!-- BLOCO 1: QUEM ESTÁ POR TRÁS -->
+  <!-- BLOCO 1: QUEM CONSTRÓI A MÁQUINA -->
   <section class="specialist-section section" id="specialist">
     <div class="container">
       <div class="pipeline-header fade-up">
         <div class="section-label">
           <i data-lucide="user-check" style="width:16px;height:16px"></i>
-          Quem está por trás
+          Quem constrói a máquina
         </div>
-        <h2 class="section-title">Não é só código. Tem um especialista por trás.</h2>
+        <h2 class="section-title">Luis Felipe não vende ferramentas.<br>Ele projeta arquiteturas que transformam negócios.</h2>
       </div>
 
       <div class="specialist-grid fade-up">
         <div class="specialist-photo-wrapper">
-          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — Criador da Fábrica de Gênios" class="specialist-photo">
+          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — Arquiteto de Soluções Estratégicas em IA" class="specialist-photo">
         </div>
         <div class="specialist-info">
           <h2>Luis Felipe</h2>
-          <div class="specialist-role">Arquiteto de Sistemas de IA · Criador da Fábrica de Gênios</div>
+          <div class="specialist-role">Arquiteto de Soluções Estratégicas em IA</div>
           <p class="specialist-bio">
-            Engenheiro de software com mais de 15 anos de experiência, especialista em arquiteturas de IA multi-agente e orquestração de sistemas inteligentes. Criou a Fábrica de Gênios como framework industrial para transformar conhecimento bruto em mind-clones de IA funcionais — e agora oferece serviços de consultoria, tutoria e implementação completa para quem quer acelerar o processo.
+            Experiência direta em projetos que ultrapassaram R$ 10 milhões em receita validada e impactaram mais de 7.000 alunos. Criador de 50+ assistentes de inteligência artificial personalizados, incluindo GPTs avançados e Sentinelas autônomas projetadas para operar 24 horas por dia sem supervisão.
           </p>
-          <div class="specialist-tags">
-            <span class="specialist-tag">Claude Code</span>
-            <span class="specialist-tag">Multi-Agent Systems</span>
-            <span class="specialist-tag">Mind-Clones</span>
-            <span class="specialist-tag">AI Orchestration</span>
-            <span class="specialist-tag">Knowledge Pipelines</span>
-            <span class="specialist-tag">Infoprodutos</span>
+          <p class="specialist-bio">
+            Aluno fundador da Comunidade, Formação Lendár[IA] e ex-membro do time, acompanhou o start nos bastidores de uma das primeiras formações para gestores de IA no Brasil. Hoje opera com um Segundo Cérebro Empresarial de 9.900+ notas interconectadas no Obsidian, construído ao longo de 3 anos de engenharia reversa de processos, sistemas e metodologias de alta performance.
+          </p>
+          <div class="specialist-skills-label">Especialidades que você vai acessar na consultoria e tutoria:</div>
+          <ul class="specialist-skills">
+            <li>Engenharia de Prompts de alta camada</li>
+            <li>Design de Multi-Agentes e construção de Squads</li>
+            <li>Mapeamento de Processos, Estruturação Comercial e Melhoria de Ofertas</li>
+            <li>Clones Digitais (Experts, Especialistas e Autores) e Neo Clones Fidedignos</li>
+            <li>Segundo Cérebro Pessoal e Empresarial aplicado a negócios</li>
+          </ul>
+          <div class="specialist-philosophy">
+            <p><strong>Estratégia</strong> primeiro. <strong>Processos e Sistemas</strong> segundo. <strong>Planejamento</strong> terceiro. <strong>Direcionamento</strong> quarto. <strong>IA</strong> por último.</p>
+            <p class="philosophy-warning">A ordem importa. Pular etapas gera caos automatizado.</p>
+            <p class="philosophy-closing">IA não é mágica. É arquitetura que potencializa quem sabe usar.</p>
           </div>
-          <p class="specialist-quote">
-            "Conhecimento preso em PDFs é potencial desperdiçado. A Fábrica de Gênios não é um curso — é um pipeline industrial que transforma tudo que você sabe em inteligências que trabalham por você."
-          </p>
         </div>
       </div>
     </div>
@@ -2388,8 +2461,7 @@
           <i data-lucide="settings" style="width:16px;height:16px"></i>
           Como funciona na prática
         </div>
-        <h2 class="section-title">Escolha seu nível de acompanhamento.</h2>
-        <p class="section-subtitle">Além do squad, Luis Felipe oferece serviços pessoais para quem quer ir mais rápido e mais longe.</p>
+        <h2 class="section-title">Três caminhos. Um resultado: seus mind-clones operando.</h2>
       </div>
 
       <div class="services-grid fade-up">
@@ -2400,16 +2472,20 @@
           </div>
           <h3>Consultoria</h3>
           <div class="service-price"><span class="currency">$</span>497</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            Direcionamento cirúrgico para o seu caso.
+          </p>
           <p class="service-desc">
-            Uma sessão estratégica de 1 hora ao vivo com Luis Felipe. Ele analisa seu caso, identifica oportunidades e traça um roadmap personalizado para seus mind-clones.
+            Você já tem o Squad. Agora precisa saber exatamente por onde começar no seu negócio. Em 1 hora ao vivo com Luis Felipe, analisamos sua realidade, identificamos qual dos 36 agentes ativar primeiro, qual conhecimento injetar e traçamos o roadmap completo de implementação. Você sai da sessão com um plano de ação de 72 horas e a gravação para consultar sempre que precisar.
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad completo incluso ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 1h ao vivo com Luis Felipe</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Análise do seu caso de uso</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Roadmap personalizado</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Gravação da sessão</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Tudo do Squad (5 squads, 36 agentes, 15 workflows, licença vitalícia)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 1h de consultoria ao vivo com Luis Felipe</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Análise personalizada do seu caso de uso</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Roadmap de implementação sob medida</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Gravação completa da sessão</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">Ideal para quem já tem clareza do problema e precisa de um direcionamento rápido e certeiro.</p>
         </div>
 
         <!-- Tutoria (Featured) -->
@@ -2420,18 +2496,23 @@
           </div>
           <h3>Tutoria</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>997</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            Construção lado a lado. Seu primeiro gênio no ar em 5 dias.
+          </p>
           <p class="service-desc">
-            5 dias intensivos (1h/dia) com Luis Felipe. Ele configura tudo junto com você, cria seu primeiro mind-clone ao vivo e acompanha a implementação completa.
+            Para quem não quer adivinhar sozinho. Em 5 sessões intensivas (1h por dia durante 5 dias), Luis Felipe configura junto com você todo o ambiente, cria seu primeiro mind-clone calibrado e acompanha cada etapa da implementação. Ao final, você tem um agente funcional rodando, não uma teoria no papel.
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad completo incluso ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 sessões ao vivo (1h/dia)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Setup completo do ambiente</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clone criado junto</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Suporte direto por 30 dias</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Acesso ao grupo exclusivo</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Tudo do Squad (5 squads, 36 agentes, 15 workflows, licença vitalícia)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 sessões ao vivo (1h/dia por 5 dias consecutivos)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Setup completo do seu ambiente de trabalho</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Seu primeiro mind-clone criado e calibrado junto</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Acompanhamento prático na implementação</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Suporte direto por 30 dias após o programa</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Acesso ao grupo exclusivo de alunos</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> Gravações de todas as sessões</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">Ideal para quem precisa de acompanhamento tático e quer garantir que o sistema funcione desde o dia 1.</p>
         </div>
 
         <!-- Implementação (Premium) -->
@@ -2442,18 +2523,22 @@
           </div>
           <h3>Implementação</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>2.497<span style="font-size: 18px; -webkit-text-fill-color: inherit;">+</span></div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            Entrega completa. Fazemos tudo para o seu nicho.
+          </p>
           <p class="service-desc">
-            Entrega completa. Luis Felipe implementa tudo para o seu nicho — squads configurados, mind-clones criados e calibrados, go-to-market pronto.
+            Para empresários e equipes que querem velocidade absoluta. Configuramos os squads para o seu mercado, integramos com seus sistemas, criamos e calibramos os mind-clones e entregamos tudo funcionando. Você recebe a máquina pronta, ligada e gerando resultado.
           </p>
           <ul class="service-features-list">
             <li><i data-lucide="check" style="width:14px;height:14px"></i> Tudo do Squad + Tutoria incluso</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Implementação personalizada</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squads configurados para seu nicho</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Integração com seus sistemas</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clones criados e calibrados</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Implementação completa e personalizada para o seu nicho</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Configuração dos squads adaptada ao seu mercado</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Integração com seus sistemas e ferramentas existentes</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clones criados, calibrados e testados</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> Suporte prioritário por 60 dias</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Consultoria de go-to-market</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Consultoria estratégica de go-to-market</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">Ideal para quem quer resultado sem curva de aprendizado.</p>
         </div>
       </div>
     </div>
@@ -2745,25 +2830,25 @@
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Squad — $197</p>
             <p>
-              Bug fix no código — sem custo adicional. Se rodar o pipeline e algo der errado no código, abrimos issue e corrigimos. <strong style="color: var(--color-text-primary);">Garantia técnica total.</strong>
+              Bug fix técnico garantido. Se o pipeline apresentar erro originado do nosso código, abrimos issue e corrigimos sem custo adicional. <strong style="color: var(--color-text-primary);">O risco técnico é nosso.</strong>
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Consultoria — $497</p>
             <p>
-              Se a sessão de 1h com Luis Felipe não entregar valor prático para o seu caso, <strong style="color: var(--color-text-primary);">devolvemos os $300 da consultoria.</strong> Você fica com o squad.
+              Se a sessão de 1h com Luis Felipe não entregar valor prático e aplicável para o seu caso, <strong style="color: var(--color-text-primary);">devolvemos os $300 da consultoria.</strong> Você fica com o squad e com a gravação.
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-accent); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Tutoria — $997</p>
             <p>
-              Ao final dos 5 dias com Luis Felipe, você terá pelo menos 1 mind-clone funcional rodando — ou <strong style="color: var(--color-text-primary);">devolvemos 100% do valor.</strong> Sem letras miúdas.
+              Ao final dos 5 dias com Luis Felipe, você terá pelo menos 1 mind-clone funcional rodando no seu ambiente. <strong style="color: var(--color-text-primary);">Se isso não acontecer, devolvemos 100% do valor.</strong> Sem letras miúdas.
             </p>
           </div>
           <div>
             <p style="font-weight: 700; font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px; background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Implementação — $2.497+</p>
             <p>
-              Resultado garantido por contrato. Entregamos tudo funcionando ou <strong style="color: var(--color-text-primary);">reembolso proporcional.</strong> Escopo e garantias definidos antes de começar.
+              Resultado garantido por contrato. Entregamos tudo funcionando ou <strong style="color: var(--color-text-primary);">reembolso proporcional.</strong> Escopo, prazos e garantias definidos antes de começar.
             </p>
           </div>
         </div>

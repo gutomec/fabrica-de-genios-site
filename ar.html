@@ -1475,6 +1475,72 @@
       line-height: 1.6;
     }
 
+    .specialist-skills-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-skills {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-skills li {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      padding-right: 20px;
+      position: relative;
+    }
+
+    .specialist-skills li::before {
+      content: '←';
+      position: absolute;
+      right: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .specialist-philosophy {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-philosophy p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .specialist-philosophy p strong { color: var(--color-text-primary); }
+
+    .specialist-philosophy .philosophy-warning {
+      color: var(--color-orange);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 14px;
+      margin-top: var(--space-md);
+    }
+
+    .specialist-philosophy .philosophy-closing {
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      margin-top: var(--space-md);
+    }
+
     /* ============================================
        SERVICES SECTION (Como Funciona na Prática)
        ============================================ */
@@ -1757,7 +1823,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#pipeline">خط الإنتاج</a></li>
-        <li><a href="#specialist">المتخصص</a></li>
+        <li><a href="#specialist">من يبني</a></li>
         <li><a href="#services">الخدمات</a></li>
         <li><a href="#pricing">السعر</a></li>
       </ul>
@@ -2018,38 +2084,43 @@
     </div>
   </section>
 
-  <!-- BLOCO 1: من يقف وراء ذلك -->
+  <!-- BLOCO 1: من يبني الآلة -->
   <section class="specialist-section section" id="specialist">
     <div class="container">
       <div class="pipeline-header fade-up">
         <div class="section-label">
           <i data-lucide="user-check" style="width:16px;height:16px"></i>
-          من يقف وراء ذلك
+          من يبني الآلة
         </div>
-        <h2 class="section-title">ليس مجرد كود. هناك متخصص وراء ذلك.</h2>
+        <h2 class="section-title">لويس فيليبي لا يبيع أدوات.<br>بل يصمم هندسة تُحوّل الأعمال.</h2>
       </div>
 
       <div class="specialist-grid fade-up">
         <div class="specialist-photo-wrapper">
-          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — مبتكر مصنع العباقرة" class="specialist-photo">
+          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — مهندس حلول ذكاء اصطناعي استراتيجي" class="specialist-photo">
         </div>
         <div class="specialist-info">
           <h2>Luis Felipe</h2>
-          <div class="specialist-role">مهندس أنظمة الذكاء الاصطناعي · مبتكر مصنع العباقرة</div>
+          <div class="specialist-role">مهندس حلول ذكاء اصطناعي استراتيجي</div>
           <p class="specialist-bio">
-            مهندس برمجيات بخبرة تتجاوز 15 عاماً، متخصص في بنى الذكاء الاصطناعي متعددة الوكلاء وتنسيق الأنظمة الذكية. أنشأ مصنع العباقرة كإطار عمل صناعي لتحويل المعرفة الخام إلى نسخ ذهنية وظيفية من الذكاء الاصطناعي — ويقدم الآن خدمات الاستشارة والتدريب والتنفيذ الكامل لمن يريد تسريع هذه العملية.
+            خبرة مباشرة في مشاريع تجاوزت R$ 10 مليون في عائدات محققة وأثّرت في أكثر من 7,000 طالب. منشئ أكثر من 50 مساعداً للذكاء الاصطناعي مخصصاً، بما فيها GPTs متقدمة وحُراس مستقلون مصممون للعمل 24 ساعة يومياً بدون إشراف.
           </p>
-          <div class="specialist-tags">
-            <span class="specialist-tag">Claude Code</span>
-            <span class="specialist-tag">Multi-Agent Systems</span>
-            <span class="specialist-tag">Mind-Clones</span>
-            <span class="specialist-tag">AI Orchestration</span>
-            <span class="specialist-tag">Knowledge Pipelines</span>
-            <span class="specialist-tag">المنتجات الرقمية</span>
+          <p class="specialist-bio">
+            عضو مؤسس في مجتمع Lendár[IA] وفريق التدريب، شهد من الداخل إطلاق أحد أوائل برامج تدريب مديري الذكاء الاصطناعي في البرازيل. يعمل اليوم بدماغ ثانٍ تجاري يضم أكثر من 9,900 ملاحظة مترابطة في Obsidian، بُني على مدى 3 سنوات من الهندسة العكسية للعمليات والأنظمة ومنهجيات الأداء العالي.
+          </p>
+          <div class="specialist-skills-label">الخبرات التي ستحصل عليها في الاستشارة والتدريس:</div>
+          <ul class="specialist-skills">
+            <li>هندسة البرومبتات المتقدمة</li>
+            <li>تصميم الوكلاء المتعددين وبناء الفرق</li>
+            <li>رسم خرائط العمليات والهيكلة التجارية وتحسين العروض</li>
+            <li>النسخ الرقمية والنسخ الجديدة الموثوقة</li>
+            <li>الدماغ الثاني الشخصي والتجاري المطبق على الأعمال</li>
+          </ul>
+          <div class="specialist-philosophy">
+            <p><strong>الاستراتيجية</strong> أولاً. <strong>العمليات والأنظمة</strong> ثانياً. <strong>التخطيط</strong> ثالثاً. <strong>التوجيه</strong> رابعاً. <strong>الذكاء الاصطناعي</strong> أخيراً.</p>
+            <p class="philosophy-warning">الترتيب مهم. تجاوز الخطوات يخلق فوضى مؤتمتة.</p>
+            <p class="philosophy-closing">الذكاء الاصطناعي ليس سحراً. بل هو هندسة تُمكّن من يعرف كيفية استخدامه.</p>
           </div>
-          <p class="specialist-quote">
-            "المعرفة المحبوسة في ملفات PDF هي طاقة مهدرة. مصنع العباقرة ليس دورة تدريبية — إنه خط إنتاج صناعي يحوّل كل ما تعرفه إلى ذكاءات تعمل لأجلك."
-          </p>
         </div>
       </div>
     </div>
@@ -2063,8 +2134,7 @@
           <i data-lucide="settings" style="width:16px;height:16px"></i>
           كيف يعمل عملياً
         </div>
-        <h2 class="section-title">اختر مستوى الدعم الخاص بك.</h2>
-        <p class="section-subtitle">بالإضافة إلى الفريق، يقدم Luis Felipe خدمات شخصية لمن يريد التقدم أسرع وأبعد.</p>
+        <h2 class="section-title">ثلاثة مسارات. نتيجة واحدة: نسخك الذهنية تعمل.</h2>
       </div>
 
       <div class="services-grid fade-up">
@@ -2075,16 +2145,20 @@
           </div>
           <h3>استشارة</h3>
           <div class="service-price"><span class="currency">$</span>497</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            توجيه دقيق لحالتك بالذات.
+          </p>
           <p class="service-desc">
-            جلسة استراتيجية واحدة مباشرة لمدة ساعة مع Luis Felipe. يحلل حالتك، يحدد الفرص، ويضع خارطة طريق مخصصة لنسخك الذهنية.
+            لديك Squad بالفعل. الآن تحتاج أن تعرف بالضبط من أين تبدأ في عملك. في ساعة واحدة مباشرة مع Luis Felipe، نحلل واقعك، نحدد أي من الـ 36 وكيلاً تُفعّل أولاً، أي المعرفة تضخ، ونرسم خارطة التنفيذ الكاملة. ستغادر بخطة عمل لـ 72 ساعة والتسجيل للرجوع إليه متى احتجت.
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> الفريق الكامل مشمول ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> ساعة مباشرة مع Luis Felipe</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> تحليل حالة الاستخدام الخاصة بك</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> خارطة طريق مخصصة</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> تسجيل الجلسة</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad الكامل مشمول (5 فرق، 36 وكيلاً، 15 سير عمل، رخصة مدى الحياة)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> ساعة استشارة مباشرة مع Luis Felipe</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> تحليل مخصص لحالة استخدامك</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> خارطة طريق تنفيذية مخصصة</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> تسجيل كامل للجلسة</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">مثالي لمن لديه وضوح حول المشكلة ويحتاج توجيهاً سريعاً ودقيقاً.</p>
         </div>
 
         <!-- تدريب (Featured) -->
@@ -2095,18 +2169,23 @@
           </div>
           <h3>تدريب</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>997</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            البناء جنباً إلى جنب. عبقريك الأول حي في 5 أيام.
+          </p>
           <p class="service-desc">
-            5 أيام مكثفة (ساعة/يوم) مع Luis Felipe. يُهيئ كل شيء معك، يبني أول نسخة ذهنية لك مباشرة، ويرافقك في التنفيذ الكامل.
+            لمن لا يريد التخمين بمفرده. في 5 جلسات مكثفة (ساعة في اليوم لمدة 5 أيام)، يُهيئ Luis Felipe بيئتك الكاملة معك، ينشئ أول نسخة ذهنية محايَرة لك، ويتابع كل خطوة من خطوات التنفيذ. في النهاية، لديك وكيل يعمل فعلياً — لا نظرية على الورق.
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> الفريق الكامل مشمول ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 جلسات مباشرة (ساعة/يوم)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> إعداد بيئة العمل بالكامل</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> بناء نسخة ذهنية معاً</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> دعم مباشر لمدة 30 يوماً</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> وصول للمجموعة الحصرية</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad الكامل مشمول (5 فرق، 36 وكيلاً، 15 سير عمل، رخصة مدى الحياة)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 جلسات مباشرة (ساعة/يوم لمدة 5 أيام متتالية)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> إعداد بيئة العمل الكاملة</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> بناء أول نسخة ذهنية وهيكلتها معاً</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> دعم تطبيقي عملي</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> دعم مباشر لمدة 30 يوماً بعد البرنامج</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> وصول لمجموعة الطلاب الحصرية</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> تسجيلات جميع الجلسات</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">مثالي لمن يحتاج توجيهاً تطبيقياً ويريد ضمان أن النظام يعمل من اليوم الأول.</p>
         </div>
 
         <!-- تنفيذ (Premium) -->
@@ -2117,18 +2196,22 @@
           </div>
           <h3>تنفيذ</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>2,497<span style="font-size: 18px; -webkit-text-fill-color: inherit;">+</span></div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            تسليم كامل. نحن نفعل كل شيء لمجالك.
+          </p>
           <p class="service-desc">
-            تسليم كامل. Luis Felipe يُنفّذ كل شيء لمجالك — فرق مُهيّأة، نسخ ذهنية منشأة ومعايَرة، واستراتيجية دخول السوق جاهزة.
+            لرواد الأعمال والفرق الذين يريدون سرعة قصوى. نُهيئ الفرق لسوقك، ندمجها مع أنظمتك، ننشئ النسخ الذهنية ونعايرها ونُسلّم كل شيء جاهزاً للعمل. تستلم الآلة مُعدّة، تعمل، وتُولّد نتائج.
           </p>
           <ul class="service-features-list">
             <li><i data-lucide="check" style="width:14px;height:14px"></i> كل ما في Squad + التدريب مشمول</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> تنفيذ مخصص كامل</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> تهيئة الفرق لمجالك</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> تكامل مع أنظمتك الحالية</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> نسخ ذهنية منشأة ومعايَرة</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> تنفيذ كامل مخصص لمجالك</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> تهيئة الفرق مكيّفة لسوقك</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> تكامل مع أنظمتك وأدواتك الحالية</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> نسخ ذهنية منشأة ومعايَرة ومختبَرة</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> دعم ذو أولوية لمدة 60 يوماً</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> استشارات استراتيجية لدخول السوق</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">مثالي لمن يريد نتائج بدون منحنى تعلّم.</p>
         </div>
       </div>
     </div>
@@ -2420,25 +2503,25 @@
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Squad — $197</p>
             <p>
-              إصلاح أخطاء الكود — بدون تكلفة إضافية. إذا واجهت مشكلة في الكود أثناء تشغيل خط الإنتاج، نفتح issue ونصلحه. <strong style="color: var(--color-text-primary);">ضمان تقني كامل.</strong>
+              إصلاح أخطاء الكود — بدون تكلفة إضافية. إذا شغّلت خط الإنتاج وحدث خطأ في الكود، نفتح issue ونصلحه. <strong style="color: var(--color-text-primary);">ضمان تقني كامل.</strong>
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">الاستشارة — $497</p>
             <p>
-              إذا لم تقدم جلسة الساعة الواحدة مع Luis Felipe قيمة عملية لحالتك، <strong style="color: var(--color-text-primary);">نعيد $300 رسوم الاستشارة.</strong> تحتفظ بـ Squad.
+              إذا لم تُقدم جلسة الساعة مع Luis Felipe قيمة عملية لحالتك، <strong style="color: var(--color-text-primary);">نعيد $300 رسوم الاستشارة.</strong> تحتفظ بـ Squad.
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-accent); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">التدريب — $997</p>
             <p>
-              بنهاية 5 أيام مع Luis Felipe، سيكون لديك نسخة ذكاء واحدة على الأقل تعمل — أو <strong style="color: var(--color-text-primary);">استرداد 100%.</strong> بدون شروط خفية.
+              بنهاية 5 أيام مع Luis Felipe، ستمتلك نسخة ذهنية واحدة على الأقل تعمل فعلياً — أو <strong style="color: var(--color-text-primary);">استرداد 100%.</strong> بدون أي بنود مخفية.
             </p>
           </div>
           <div>
             <p style="font-weight: 700; background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">التنفيذ — $2,497+</p>
             <p>
-              نتائج مضمونة بالعقد. نسلم كل شيء يعمل أو <strong style="color: var(--color-text-primary);">استرداد نسبي.</strong> النطاق والضمانات محددة قبل البدء.
+              نتائج مضمونة بالعقد. نُسلّم كل شيء يعمل أو <strong style="color: var(--color-text-primary);">استرداد نسبي.</strong> النطاق والضمانات محددة قبل البدء.
             </p>
           </div>
         </div>

@@ -1721,6 +1721,74 @@
       line-height: 1.6;
     }
 
+    .specialist-skills-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-skills {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-skills li {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .specialist-skills li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .specialist-philosophy {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-philosophy p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .specialist-philosophy p strong {
+      color: var(--color-text-primary);
+    }
+
+    .specialist-philosophy .philosophy-warning {
+      color: var(--color-orange);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 14px;
+      margin-top: var(--space-md);
+    }
+
+    .specialist-philosophy .philosophy-closing {
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      margin-top: var(--space-md);
+    }
+
     /* ============================================
        SERVICES SECTION (How it works in practice)
        ============================================ */
@@ -2043,7 +2111,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#pipeline">Pipeline</a></li>
-        <li><a href="#specialist">Specialist</a></li>
+        <li><a href="#specialist">Who builds</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
@@ -2324,44 +2392,47 @@
     </div>
   </section>
 
-  <!-- BLOCO 1: WHO'S BEHIND IT -->
   <section class="specialist-section section" id="specialist">
     <div class="container">
       <div class="pipeline-header fade-up">
         <div class="section-label">
           <i data-lucide="user-check" style="width:16px;height:16px"></i>
-          Who's behind it
+          Who builds the machine
         </div>
-        <h2 class="section-title">It's not just code. There's a specialist behind it.</h2>
+        <h2 class="section-title">Luis Felipe doesn't sell tools.<br>He designs architectures that transform businesses.</h2>
       </div>
 
       <div class="specialist-grid fade-up">
         <div class="specialist-photo-wrapper">
-          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — Creator of Genius Factory" class="specialist-photo">
+          <img src="assets/luis-felipe.jpg" alt="Luis Felipe — Strategic AI Solutions Architect" class="specialist-photo">
         </div>
         <div class="specialist-info">
           <h2>Luis Felipe</h2>
-          <div class="specialist-role">AI Systems Architect · Creator of Fábrica de Gênios</div>
+          <div class="specialist-role">Strategic AI Solutions Architect</div>
           <p class="specialist-bio">
-            Software engineer with over 15 years of experience, specializing in multi-agent AI architectures and intelligent systems orchestration. He created Genius Factory as an industrial framework to transform raw knowledge into functional AI mind-clones — and now offers consulting, tutoring, and full implementation services for those who want to accelerate the process.
+            Direct experience in projects that surpassed R$ 10 million in validated revenue and impacted over 7,000 students. Creator of 50+ custom artificial intelligence assistants, including advanced GPTs and autonomous Sentinels designed to operate 24 hours a day without supervision.
           </p>
-          <div class="specialist-tags">
-            <span class="specialist-tag">Claude Code</span>
-            <span class="specialist-tag">Multi-Agent Systems</span>
-            <span class="specialist-tag">Mind-Clones</span>
-            <span class="specialist-tag">AI Orchestration</span>
-            <span class="specialist-tag">Knowledge Pipelines</span>
-            <span class="specialist-tag">Infoproducts</span>
+          <p class="specialist-bio">
+            Founding member of the Community, Lendár[IA] Training and former team member, he witnessed the backstage launch of one of the first AI manager training programs in Brazil. Today he operates with a Business Second Brain of 9,900+ interconnected notes in Obsidian, built over 3 years of reverse-engineering processes, systems and high-performance methodologies.
+          </p>
+          <div class="specialist-skills-label">Expertise you'll access in consulting and tutoring:</div>
+          <ul class="specialist-skills">
+            <li>High-level Prompt Engineering</li>
+            <li>Multi-Agent Design and Squad building</li>
+            <li>Process Mapping, Commercial Structuring and Offer Improvement</li>
+            <li>Digital Clones (Experts, Specialists and Authors) and Faithful Neo Clones</li>
+            <li>Personal and Business Second Brain applied to business</li>
+          </ul>
+          <div class="specialist-philosophy">
+            <p><strong>Strategy</strong> first. <strong>Processes and Systems</strong> second. <strong>Planning</strong> third. <strong>Direction</strong> fourth. <strong>AI</strong> last.</p>
+            <p class="philosophy-warning">The order matters. Skipping steps creates automated chaos.</p>
+            <p class="philosophy-closing">AI is not magic. It's architecture that empowers those who know how to use it.</p>
           </div>
-          <p class="specialist-quote">
-            "Knowledge locked in PDFs is wasted potential. Genius Factory is not a course — it's an industrial pipeline that transforms everything you know into intelligences that work for you."
-          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BLOCO 2: HOW IT WORKS IN PRACTICE -->
   <section class="section" id="services">
     <div class="container">
       <div class="pipeline-header fade-up">
@@ -2369,31 +2440,32 @@
           <i data-lucide="settings" style="width:16px;height:16px"></i>
           How it works in practice
         </div>
-        <h2 class="section-title">Choose your level of support.</h2>
-        <p class="section-subtitle">Beyond the squad, Luis Felipe offers personal services for those who want to go faster and further.</p>
+        <h2 class="section-title">Three paths. One result: your mind-clones operating.</h2>
       </div>
 
       <div class="services-grid fade-up">
-        <!-- Consulting -->
         <div class="service-card">
           <div class="service-icon">
             <i data-lucide="video" style="width:24px;height:24px"></i>
           </div>
           <h3>Consulting</h3>
           <div class="service-price"><span class="currency">$</span>497</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            Surgical direction for your case.
+          </p>
           <p class="service-desc">
-            A 1-hour live strategic session with Luis Felipe. He analyzes your case, identifies opportunities, and maps out a personalized roadmap for your mind-clones.
+            You already have the Squad. Now you need to know exactly where to start in your business. In 1 hour live with Luis Felipe, we analyze your reality, identify which of the 36 agents to activate first, which knowledge to inject and map out the complete implementation roadmap. You leave with a 72-hour action plan and the recording to consult whenever needed.
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Full squad included ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 1h live with Luis Felipe</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Your use-case analysis</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Personalized roadmap</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Session recording</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Full Squad included (5 squads, 36 agents, 15 workflows, lifetime license)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 1h live consulting with Luis Felipe</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Personalized analysis of your use case</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Custom implementation roadmap</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Complete session recording</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">Ideal for those who already have clarity on the problem and need quick, precise direction.</p>
         </div>
 
-        <!-- Tutoring (Featured) -->
         <div class="service-card service-featured">
           <div class="service-badge badge-green">Best value</div>
           <div class="service-icon">
@@ -2401,21 +2473,25 @@
           </div>
           <h3>Tutoring</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>997</div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            Side-by-side building. Your first genius live in 5 days.
+          </p>
           <p class="service-desc">
-            5 intensive days (1h/day) with Luis Felipe. He sets everything up with you, creates your first mind-clone live, and guides you through the full implementation.
+            For those who don't want to guess alone. In 5 intensive sessions (1h per day for 5 days), Luis Felipe sets up your entire environment with you, creates your first calibrated mind-clone and follows each step of the implementation. At the end, you have a functional agent running, not a theory on paper.
           </p>
           <ul class="service-features-list">
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Full squad included ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 live sessions (1h/day)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Complete environment setup</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clone created together</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Direct support for 30 days</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Access to exclusive group</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Full Squad included (5 squads, 36 agents, 15 workflows, lifetime license)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5 live sessions (1h/day for 5 consecutive days)</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Complete workspace setup</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Your first mind-clone created and calibrated together</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Hands-on implementation support</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Direct support for 30 days after the program</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Access to the exclusive student group</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> Recordings of all sessions</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">Ideal for those who need tactical guidance and want to ensure the system works from day 1.</p>
         </div>
 
-        <!-- Implementation (Premium) -->
         <div class="service-card service-premium">
           <div class="service-badge badge-gold">Premium</div>
           <div class="service-icon" style="background: rgba(245, 197, 66, 0.1); color: var(--color-gold);">
@@ -2423,18 +2499,22 @@
           </div>
           <h3>Implementation</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>2,497<span style="font-size: 18px; -webkit-text-fill-color: inherit;">+</span></div>
+          <p class="service-desc" style="font-weight:600; color: var(--color-text-primary); margin-bottom: var(--space-sm);">
+            Complete delivery. We do everything for your niche.
+          </p>
           <p class="service-desc">
-            Full delivery. Luis Felipe implements everything for your niche — configured squads, mind-clones created and calibrated, go-to-market ready.
+            For entrepreneurs and teams who want absolute speed. We configure the squads for your market, integrate with your systems, create and calibrate the mind-clones and deliver everything working. You receive the machine ready, running and generating results.
           </p>
           <ul class="service-features-list">
             <li><i data-lucide="check" style="width:14px;height:14px"></i> Everything from Squad + Tutoring included</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Custom implementation</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squads configured for your niche</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Integration with your systems</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clones created and calibrated</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Complete personalized implementation for your niche</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Squad configuration adapted to your market</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Integration with your existing systems and tools</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Mind-clones created, calibrated and tested</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> Priority support for 60 days</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> Go-to-market consulting</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> Strategic go-to-market consulting</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); margin-top: var(--space-md); font-style: italic;">Ideal for those who want results without a learning curve.</p>
         </div>
       </div>
     </div>
@@ -2726,25 +2806,25 @@
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Squad — $197</p>
             <p>
-              Code bug fix — at no extra cost. If you run the pipeline and something goes wrong in the code, we open an issue and fix it. <strong style="color: var(--color-text-primary);">Full technical guarantee.</strong>
+              Technical bug fix guaranteed. If the pipeline has an error from our code, we open an issue and fix it at no additional cost. <strong style="color: var(--color-text-primary);">The technical risk is ours.</strong>
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Consulting — $497</p>
             <p>
-              If the 1h session with Luis Felipe doesn't deliver practical value for your case, <strong style="color: var(--color-text-primary);">we refund the $300 consulting fee.</strong> You keep the squad.
+              If the 1h session with Luis Felipe doesn't deliver practical and applicable value for your case, <strong style="color: var(--color-text-primary);">we refund the $300 consulting fee.</strong> You keep the squad and the recording.
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-accent); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Tutoring — $997</p>
             <p>
-              By the end of 5 days with Luis Felipe, you'll have at least 1 functional mind-clone running — or <strong style="color: var(--color-text-primary);">we refund 100%.</strong> No fine print.
+              At the end of 5 days with Luis Felipe, you'll have at least 1 functional mind-clone running in your environment. <strong style="color: var(--color-text-primary);">If that doesn't happen, we refund 100% of the value.</strong> No fine print.
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-gold); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Implementation — $2,497+</p>
             <p>
-              Results guaranteed by contract. We deliver everything working or <strong style="color: var(--color-text-primary);">proportional refund.</strong> Scope and guarantees defined before starting.
+              Results guaranteed by contract. We deliver everything working or <strong style="color: var(--color-text-primary);">proportional refund.</strong> Scope, deadlines and guarantees defined before starting.
             </p>
           </div>
         </div>

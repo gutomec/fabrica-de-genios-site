@@ -1421,6 +1421,72 @@
       line-height: 1.6;
     }
 
+    .specialist-skills-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-skills {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .specialist-skills li {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .specialist-skills li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .specialist-philosophy {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-lg);
+    }
+
+    .specialist-philosophy p {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .specialist-philosophy p strong { color: var(--color-text-primary); }
+
+    .specialist-philosophy .philosophy-warning {
+      color: var(--color-orange);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 14px;
+      margin-top: var(--space-md);
+    }
+
+    .specialist-philosophy .philosophy-closing {
+      color: var(--color-text-primary);
+      font-weight: 600;
+      font-family: var(--font-primary);
+      font-size: 15px;
+      margin-top: var(--space-md);
+    }
+
     /* ============================================
        SERVICES SECTION (Como Funciona na Prática)
        ============================================ */
@@ -1701,7 +1767,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#pipeline">流水线</a></li>
-        <li><a href="#specialist">专家</a></li>
+        <li><a href="#specialist">谁在构建</a></li>
         <li><a href="#services">服务</a></li>
         <li><a href="#pricing">价格</a></li>
       </ul>
@@ -1962,15 +2028,15 @@
     </div>
   </section>
 
-  <!-- BLOCO 1: 背后的专家 -->
+  <!-- BLOCO 1: 谁在构建这台机器 -->
   <section class="specialist-section section" id="specialist">
     <div class="container">
       <div class="pipeline-header fade-up">
         <div class="section-label">
           <i data-lucide="user-check" style="width:16px;height:16px"></i>
-          背后的专家
+          谁在构建这台机器
         </div>
-        <h2 class="section-title">不仅仅是代码。背后有专家支持。</h2>
+        <h2 class="section-title">Luis Felipe不是卖工具的。<br>他设计改变企业的架构。</h2>
       </div>
 
       <div class="specialist-grid fade-up">
@@ -1979,21 +2045,26 @@
         </div>
         <div class="specialist-info">
           <h2>Luis Felipe</h2>
-          <div class="specialist-role">AI系统架构师 · 天才工厂创始人</div>
+          <div class="specialist-role">AI战略解决方案架构师</div>
           <p class="specialist-bio">
-            拥有超过15年经验的软件工程师，专精于多智能体AI架构与智能系统编排。他创建了天才工厂这一工业级框架，将原始知识转化为功能完善的AI心智克隆——现为希望加速这一过程的用户提供咨询、辅导和完整实施服务。
+            在超过1000万雷亚尔验证收入的项目中拥有直接经验，影响了7000多名学生。创建了50多个定制人工智能助手，包括高级GPT和设计为全天24小时无人监督运行的自主哨兵。
           </p>
-          <div class="specialist-tags">
-            <span class="specialist-tag">Claude Code</span>
-            <span class="specialist-tag">Multi-Agent Systems</span>
-            <span class="specialist-tag">Mind-Clones</span>
-            <span class="specialist-tag">AI Orchestration</span>
-            <span class="specialist-tag">Knowledge Pipelines</span>
-            <span class="specialist-tag">信息产品</span>
+          <p class="specialist-bio">
+            社区创始学员，Lendár[IA]培训项目前团队成员，在巴西首批AI管理者培训项目的幕后见证了启动。如今运营着一个拥有9900多条互联笔记的企业第二大脑（Obsidian），经过3年的流程、系统和高性能方法论逆向工程构建而成。
+          </p>
+          <div class="specialist-skills-label">您将在咨询和辅导中获得的专业知识：</div>
+          <ul class="specialist-skills">
+            <li>高级提示工程</li>
+            <li>多智能体设计和Squad构建</li>
+            <li>流程映射、商业结构化和产品优化</li>
+            <li>数字克隆（专家、专业人员和作者）和忠实新克隆</li>
+            <li>应用于商业的个人和企业第二大脑</li>
+          </ul>
+          <div class="specialist-philosophy">
+            <p><strong>战略</strong>第一。<strong>流程和系统</strong>第二。<strong>规划</strong>第三。<strong>方向</strong>第四。<strong>AI</strong>最后。</p>
+            <p class="philosophy-warning">顺序很重要。跳过步骤会制造自动化混乱。</p>
+            <p class="philosophy-closing">AI不是魔法。它是赋能懂得使用它的人的架构。</p>
           </div>
-          <p class="specialist-quote">
-            "锁在PDF里的知识是被浪费的潜力。天才工厂不是一门课程——它是一条工业流水线，将你所知道的一切转化为替你工作的智能体。"
-          </p>
         </div>
       </div>
     </div>
@@ -2007,7 +2078,7 @@
           <i data-lucide="settings" style="width:16px;height:16px"></i>
           实际操作方式
         </div>
-        <h2 class="section-title">选择您的支持级别。</h2>
+        <h2 class="section-title">三条路径。一个结果：您的思维克隆运行中。</h2>
         <p class="section-subtitle">除了小队之外，Luis Felipe还为想要走得更快更远的用户提供个人服务。</p>
       </div>
 
@@ -2020,15 +2091,16 @@
           <h3>咨询</h3>
           <div class="service-price"><span class="currency">$</span>497</div>
           <p class="service-desc">
-            与Luis Felipe进行1小时的在线战略会议。他分析您的情况，识别机会，并为您的心智克隆制定个性化路线图。
+            针对您案例的精准指导。与Luis Felipe进行1小时的在线战略会议。他分析您的业务、识别最高价值的自动化机会，并为您的心智克隆创建个性化路线图——让您带着清晰的行动计划离开，而不仅仅是更多问题。
           </p>
           <ul class="service-features-list">
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 包含完整小队 ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 与Luis Felipe 1小时在线会议</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 您的用例分析</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 个性化路线图</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 会议录像</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 与Luis Felipe 1小时在线战略会议</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 您的用例深度分析</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 带优先级的个性化路线图</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 完整会议录像</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); font-style: italic; margin-top: var(--space-md);">适合：知道自己想要什么但需要专业方向的人</p>
         </div>
 
         <!-- 辅导 (Featured) -->
@@ -2040,17 +2112,19 @@
           <h3>辅导</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-accent), #4ade80); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>997</div>
           <p class="service-desc">
-            5天密集训练（每天1小时），与Luis Felipe一起。他与您共同完成所有配置，实时创建您的第一个心智克隆，并全程陪伴实施。
+            并肩构建。5天内您的第一个天才上线。5天密集训练（每天1小时），与Luis Felipe一起。他与您共同完成所有配置，实时创建您的第一个心智克隆，并全程陪伴实施——您在实践中学习，而不只是观看。
           </p>
           <ul class="service-features-list">
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 包含完整小队 ($197)</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5次在线会议（每天1小时）</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 完整环境配置</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 共同创建心智克隆</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 5次在线会议（每天1小时，共5天）</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 完整环境配置与设置</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 与Luis Felipe共同实时创建心智克隆</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 全程实施指导</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 30天直接支持</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 加入专属社群</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 所有会议录像</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); font-style: italic; margin-top: var(--space-md);">适合：想要亲自动手学习并在专家指导下构建第一个克隆的人</p>
         </div>
 
         <!-- 实施 (Premium) -->
@@ -2062,17 +2136,18 @@
           <h3>实施</h3>
           <div class="service-price" style="background: linear-gradient(135deg, var(--color-gold), var(--color-orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;"><span class="currency" style="-webkit-text-fill-color: inherit;">$</span>2,497<span style="font-size: 18px; -webkit-text-fill-color: inherit;">+</span></div>
           <p class="service-desc">
-            完整交付。Luis Felipe为您的细分领域实施一切——小队配置完毕、心智克隆创建并校准、上市方案就绪。
+            完整交付。我们为您的细分市场做一切。Luis Felipe为您的细分领域完整实施——小队按您的业务配置完毕、心智克隆创建并精确校准、上市方案就绪可执行。您不需要触碰任何代码。
           </p>
           <ul class="service-features-list">
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 包含小队 + 辅导全部内容</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 个性化实施</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 针对您细分领域配置小队</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 与您的系统集成</li>
-            <li><i data-lucide="check" style="width:14px;height:14px"></i> 创建并校准心智克隆</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 针对您细分领域的完整定制实施</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 按您的业务配置小队</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 与您现有系统集成</li>
+            <li><i data-lucide="check" style="width:14px;height:14px"></i> 创建并精确校准心智克隆</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 60天优先支持</li>
             <li><i data-lucide="check" style="width:14px;height:14px"></i> 上市战略咨询</li>
           </ul>
+          <p style="font-size: 13px; color: var(--color-text-muted); font-style: italic; margin-top: var(--space-md);">适合：需要完整交付且不想学习技术细节的企业家和企业</p>
         </div>
       </div>
     </div>
@@ -2364,25 +2439,25 @@
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">Squad — $197</p>
             <p>
-              代码bug修复 — 无额外费用。如果运行流水线时代码出错，我们开issue并修复。<strong style="color: var(--color-text-primary);">完整技术保障。</strong>
+              代码问题修复保障 — 无额外费用。如果在运行流水线时代码出现故障，我们开立工单并修复。<strong style="color: var(--color-text-primary);">完整技术保障。</strong>您购买的是可运行的系统，而非空洞的承诺。
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-text-primary); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">咨询 — $497</p>
             <p>
-              如果与Luis Felipe的1小时会议未能为您的案例提供实用价值，<strong style="color: var(--color-text-primary);">我们退还$300咨询费。</strong>您保留squad。
+              如果与Luis Felipe的1小时战略会议未能为您的具体案例提供可操作的实用价值，<strong style="color: var(--color-text-primary);">我们退还$300咨询费用。</strong>您保留Squad和所有文档。风险完全由我们承担。
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-accent); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">辅导 — $997</p>
             <p>
-              与Luis Felipe 5天结束后，您将拥有至少1个运行中的心智克隆 — 否则<strong style="color: var(--color-text-primary);">全额退款。</strong>无附加条件。
+              5天辅导结束后，您将拥有至少1个完全运行的心智克隆，在您的环境中配置完毕 — 否则<strong style="color: var(--color-text-primary);">全额退款，无任何附加条件。</strong>结果有保障，不只是努力有保障。
             </p>
           </div>
           <div>
             <p style="font-weight: 700; color: var(--color-gold); font-family: var(--font-primary); margin-bottom: var(--space-sm); font-size: 16px;">实施 — $2,497+</p>
             <p>
-              合同保障结果。我们交付一切正常运行或<strong style="color: var(--color-text-primary);">按比例退款。</strong>开始前确定范围和保障。
+              合同保障交付成果。我们交付一切按规格正常运行，否则<strong style="color: var(--color-text-primary);">按未交付部分比例退款。</strong>范围和保障在启动前以书面形式明确约定。
             </p>
           </div>
         </div>
